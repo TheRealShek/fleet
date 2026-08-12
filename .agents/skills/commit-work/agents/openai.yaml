@@ -1,0 +1,6 @@
+interface:
+  display_name: "Commit Work"
+  short_description: "Commit completed work in clear, logical steps"
+  default_prompt: "Use $commit-work throughout this task to commit each completed functional milestone."
+policy:
+  allow_implicit_invocation: false

@@ -8,6 +8,12 @@ This repository is my source of truth for reusable AI-agent configuration. I use
 - `.agents/skills/` contains the canonical copies of my shared skills. Tool-specific skill directories should symlink to them instead of duplicating them.
 - Preserve working symlinks and keep their targets portable within this repository whenever possible.
 
+## How to write skills
+
+- Make every shared skill work with both Claude and Codex.
+- Keep each skill description to one line that only says when to use the skill. The description is always sent to the model, so do not explain the skill there.
+- Write skill instructions in simple language.
+
 ## What to change
 
 - Change `instructions/global.md` when I ask to update my working preferences across agents.
