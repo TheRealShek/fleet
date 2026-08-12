@@ -37,6 +37,7 @@ Address me as "Sir".
 - Use the simplest production-ready design. Apply YAGNI unless I ask for broader extensibility.
 - Keep the solution proportional to what is needed now and the risks that actually matter. Avoid speculative complexity, but add structure when it makes the code clearly better.
 - Follow existing repository patterns when they fit. Prefer the standard library and native platform features. Add dependencies only when their value justifies their cost.
+- When writing or reviewing code, follow the language's native principles, idioms, standard-library conventions, error-handling model, type system, and tooling. Do not mechanically transfer patterns or abstractions from another language. Follow established repository conventions when they intentionally differ.
 - Write readable, explicit code. Keep ownership of business rules, errors, concurrency, cancellation, timeouts, and resources clear. Use types when they clarify intent or prevent invalid states.
 - Comments are useful when they help explain intent, functionality, or how something should be used. Do not comment on things the code already makes clear.
 - When changing code, keep its comments updated too.
