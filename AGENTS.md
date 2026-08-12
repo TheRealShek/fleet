@@ -69,7 +69,7 @@ Address me as "Sir".
 These are greenfield defaults, not a reason to fight an existing repository's choices. Existing language, architecture, and conventions come first.
 
 - Backend: **Go**
-- Low-level, performance-sensitive, or concurrency-sensitive systems work: **Rust**
+- Low-level, performance-sensitive: **Rust**
 - Frontend: **TypeScript**
 - Custom scripts: **Python**
 
@@ -95,17 +95,8 @@ For interactive work, prefer `bat`, `rg`, `fd`, `eza`, `zoxide` (`z`), `gh`, and
 
 ## Keep Pull Requests Direct
 
-- Before filing, check whether this branch already has a pull request and review the complete local diff against the actual base branch, usually `origin/main`.
-- Look at recently merged pull requests and the Git history so the title and description follow the repository's conventions.
-- Use a concise, human-readable, imperative title that explains why the change matters, not only which component was edited.
-- Keep the description short, plain, and free of AI boilerplate or emoji.
-- Begin with the problem in the terms of my original request, then explain the outcome. Do not lead with a list of files, functions, or implementation details.
-- Use these sections, with only a few lines in each:
-  - **Intent:** the problem and why it needed to be solved
-  - **Change:** what is now better or behaves differently
-  - **Verification:** how the result was tested
-- Put breaking changes at the top.
-- Open a ready pull request when the work is complete so the normal review checks run. Use a draft only when the work is incomplete or I ask for one.
+- When I ask you to file a pull request, use the `file-pr` skill.
+- Describe the problem and outcome in human terms before technical details.
 
 ## Tell Me What Happened
 
