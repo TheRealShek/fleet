@@ -6,6 +6,8 @@ This repository is my source of truth for reusable AI-agent configuration. I use
 
 - `instructions/global.md` contains my global instructions. Keep guidance specific to Fleet in this root `AGENTS.md`.
 - `.agents/skills/` contains the canonical copies of my shared skills. Tool-specific skill directories should symlink to them instead of duplicating them.
+- `.claude/skills/` is the repository-local Claude compatibility layer. Its symlinks only make skills available when Claude discovers this repository; they do not install skills globally.
+- For a shared skill that should work from every repository, symlink its canonical directory into both `~/.agents/skills/` for Codex and `~/.claude/skills/` for Claude. Verify both links resolve to the canonical copy in this repository.
 - Preserve working symlinks and keep their targets portable within this repository whenever possible.
 
 ## How to write skills
@@ -18,6 +20,7 @@ This repository is my source of truth for reusable AI-agent configuration. I use
 
 - Change `instructions/global.md` when I ask to update my working preferences across agents.
 - Create or update shared skills only in `.agents/skills/`.
+- When adding a shared skill intended for global use, create or verify its user-level Codex and Claude symlinks. A symlink inside this repository does not expose the skill to sibling repositories.
 - Change this root `AGENTS.md` only for guidance about maintaining Fleet itself.
 
 ## What never to change
