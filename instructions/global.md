@@ -31,6 +31,9 @@ Address me as "Sir".
 - For a bug fix, inspect every caller of the changed function, not only the path where the bug was reported.
 - Think through the reasonable options, then choose the smallest change that fully fixes the root cause.
 - Stay within the requested scope. Ideas outside it are suggestions unless I approve their implementation.
+- Use `grill-with-docs` to stress-test an idea while maintaining its domain docs.
+- Use `diagnosing-bugs` for hard bugs or performance regressions.
+- Use `code-review` to review changes against repository standards and the originating spec.
 
 ## Engineering Approach
 
