@@ -60,10 +60,7 @@ Interactively, prefer `bat`, `rg`, `fd`, `eza`, `zoxide` (`z`), `gh`, and `procs
 ## Git and Pull Requests
 
 - Do not commit, push, rebase, reset, or create a branch unless I explicitly ask.
-- Keep requested commits logical and unrelated work separate. Avoid WIP commits and squash or fix up before review.
-- Never add co-author attribution to commits.
 - When I ask you to file a pull request, use the `file-pr` skill.
-- Describe the problem and outcome in human terms before technical details.
 
 ## Communication
 
