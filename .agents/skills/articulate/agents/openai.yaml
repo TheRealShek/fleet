@@ -1,0 +1,6 @@
+interface:
+  display_name: "Articulate"
+  short_description: "Turn rough thoughts into natural comments"
+  default_prompt: "Use $articulate to turn this rough thought into a simple, human-sounding comment."
+policy:
+  allow_implicit_invocation: false
