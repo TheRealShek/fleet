@@ -60,7 +60,8 @@ Interactively, prefer `bat`, `rg`, `fd`, `eza`, `zoxide` (`z`), `gh`, and `procs
 ## Git and Pull Requests
 
 - Do not commit, push, rebase, reset, or create a branch unless I explicitly ask.
-- When I ask you to file a pull request, use the `file-pr` skill.
+- Always try to make changes through a pull request unless the change is very small. Do not push directly to the default branch.
+- When filing a pull request, use the repository's PR template if present. Otherwise, use `$pr-file`.
 
 ## Communication
 
