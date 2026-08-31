@@ -8,10 +8,11 @@ description: Use when the user asks to file, open, or create a PR in github
 ## Prepare
 
 1. Read the repository instructions and contribution guide.
-2. Review the complete diff against the actual base branch. Confirm it contains only the intended change and no sensitive data.
+2. Identify the actual base branch and inspect the complete diff for unintended changes or sensitive data.
 3. Check for an existing PR for the branch. Update or report it instead of creating a duplicate.
 4. Read each issue before linking it and confirm how the change relates to it.
 5. Run the relevant tests and record the results.
+6. Use `code-review` against the actual base branch as the final check immediately before opening the PR.
 
 Do not commit, push, change branches, or alter code unless the user authorized it.
 

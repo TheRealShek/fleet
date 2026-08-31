@@ -30,7 +30,7 @@ Write to me in a direct, practical, and conversational way. Use simple language,
 - Compare reasonable options and make the smallest complete change.
 - Use `grill-with-docs` to stress-test an idea while maintaining its domain docs.
 - Use `diagnosing-bugs` for hard bugs or performance regressions.
-- Use `code-review` to review changes against repository standards and the originating spec.
+- Use `code-review` only when explicitly requested or as the final check immediately before filing a pull request.
 
 ## Engineering Approach
 

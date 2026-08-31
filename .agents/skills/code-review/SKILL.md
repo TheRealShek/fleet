@@ -1,6 +1,6 @@
 ---
 name: code-review
-description: Use when the user asks to review a branch, pull request, work-in-progress changes, or changes since a fixed point.
+description: Use only when the user explicitly asks for a code review or immediately before filing a pull request.
 ---
 
 Two-axis review of the diff between `HEAD` and a fixed point the user supplies:
