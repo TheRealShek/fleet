@@ -1,6 +1,6 @@
 ---
 name: diagnosing-bugs
-description: Use when the user asks to diagnose or debug a hard bug or performance regression, or reports something broken, throwing, failing, or slow.
+description: Diagnose medium-to-hard bugs or deepen investigation after simpler debugging attempts have failed.
 ---
 
 # Diagnosing Bugs

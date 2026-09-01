@@ -1,6 +1,6 @@
 ---
 name: grill-with-docs
-description: Use only when the user explicitly invokes `$grill-with-docs` to sharpen a plan, decision, or idea while maintaining domain docs.
+description: Use only when explicitly invoked to challenge an idea while maintaining its domain documentation.
 ---
 
 # Grill with Docs

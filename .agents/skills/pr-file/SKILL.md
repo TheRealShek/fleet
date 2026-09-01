@@ -1,6 +1,6 @@
 ---
 name: pr-file
-description: Use when the user asks to file, open, or create a PR in github
+description: File a pull request when intent is clear and the repository provides no PR template.
 ---
 
 # PR Filing
@@ -13,6 +13,7 @@ description: Use when the user asks to file, open, or create a PR in github
 4. Read each issue before linking it and confirm how the change relates to it.
 5. Run the relevant tests and record the results.
 6. Use `code-review` against the actual base branch as the final check immediately before opening the PR.
+7. Address valid findings and rerun relevant tests before opening the PR. If a fix is not authorized, stop and report the finding instead.
 
 Do not commit, push, change branches, or alter code unless the user authorized it.
 

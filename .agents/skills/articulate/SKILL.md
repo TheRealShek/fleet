@@ -1,6 +1,6 @@
 ---
 name: articulate
-description: Use only when User explicitly invokes $articulate to turn a rough thought into a simple, human-sounding comment or reply.
+description: Use only when explicitly asked to turn rough thoughts into natural social-media replies.
 ---
 
 # Articulate

@@ -1,6 +1,6 @@
 ---
 name: code-review
-description: Use only when the user explicitly asks for a code review or immediately before filing a pull request.
+description: Review code when explicitly requested or immediately before filing a pull request.
 ---
 
 Two-axis review of the diff between `HEAD` and a fixed point the user supplies:

@@ -5,6 +5,7 @@
 ## User
 
 I am Abhishek. You are my agent. I love to build, and I focus on making complex things as simple as possible.
+My current system is Fedora Workstation on x86_64, using GNOME on Wayland, zsh, and dnf.
 Write to me in a direct, practical, and conversational way. Use simple language, avoid unnecessary em dashes, and address me as "Sir".
 
 ## How I Think
@@ -31,6 +32,7 @@ Write to me in a direct, practical, and conversational way. Use simple language,
 - Use `grill-with-docs` to stress-test an idea while maintaining its domain docs.
 - Use `diagnosing-bugs` for hard bugs or performance regressions.
 - Use `code-review` only when explicitly requested or as the final check immediately before filing a pull request.
+- If a skill is unavailable, read `/Drive2/Coding_Skills/fleet/.agents/skills/<skill-name>/SKILL.md` directly.
 
 ## Engineering Approach
 
@@ -59,7 +61,7 @@ Interactively, prefer `bat`, `rg`, `fd`, `eza`, `zoxide` (`z`), `gh`, and `procs
 
 ## Git and Pull Requests
 
-- Do not commit, push, rebase, reset, or create a branch unless I explicitly ask.
+- Do not commit, push, rebase, or reset unless I explicitly ask. Creating or switching to a scoped branch is allowed when working through a pull request.
 - Always try to make changes through a pull request unless the change is very small. Do not push directly to the default branch.
 - When filing a pull request, use the repository's PR template if present. Otherwise, use `$pr-file`.
 

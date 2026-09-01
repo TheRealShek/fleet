@@ -1,6 +1,6 @@
 ---
 name: commit-work
-description: Use when the user asks to create local Git commits for completed work.
+description: Create local Git commits when the user asks to commit completed work.
 ---
 
 # Commit Work
