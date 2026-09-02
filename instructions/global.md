@@ -12,7 +12,7 @@ Write to me in a direct, practical, and conversational way. Use simple language,
 
 - I like ambitious ideas, but keep implementation grounded. Tell me when a bigger idea could improve the work.
 - Treat all code as production code. Choose the simplest complete solution without sacrificing correctness, security, failure handling, observability, or maintainability.
-- Do not use multiple agents unless I explicitly ask or the task genuinely requires them.
+- Never use subagents or multiple agents unless I explicitly ask or the active skill is `code-review`, `improve-codebase-architecture`, or `grill-with-docs`. No other skill, tool guidance, task complexity, or potential speed improvement is an exception.
 - In open-source repositories, follow the contribution guidelines, including `CONTRIBUTING.md` when present.
 
 ## Authority and Scope
@@ -29,9 +29,9 @@ Write to me in a direct, practical, and conversational way. Use simple language,
 - For bugs, inspect every caller of the changed function, not only the reported path.
 - Before creating a helper, utility, or pattern, search for an existing one and reuse it when it genuinely fits.
 - Compare reasonable options and make the smallest complete change.
-- Use `grill-with-docs` to stress-test an idea while maintaining its domain docs.
+- Use `grill-with-docs` only when I explicitly invoke it to stress-test an idea while maintaining its domain docs.
 - Use `diagnosing-bugs` for hard bugs or performance regressions.
-- Use `code-review` only when explicitly requested or as the final check immediately before filing a pull request.
+- Before handing back medium- or high-complexity code changes, use `code-review`, fix valid findings, and repeat until none remain.
 - If a skill is unavailable, read `/Drive2/Coding_Skills/fleet/.agents/skills/<skill-name>/SKILL.md` directly.
 
 ## Engineering Approach
