@@ -62,6 +62,7 @@ Interactively, prefer `bat`, `rg`, `fd`, `eza`, `zoxide` (`z`), `gh`, and `procs
 ## Git and Pull Requests
 
 - Do not commit, push, rebase, or reset unless I explicitly ask. Creating or switching to a scoped branch is allowed when working through a pull request.
+- When a review or pull request needs a base and I did not provide one, infer it. Prefer the existing PR base, then the branch upstream, then `origin/HEAD`. Ask only for stacked branches, multiple plausible bases, or when the choice would materially change the diff. Mention the inferred base in a progress update.
 - Always try to make changes through a pull request unless the change is very small. Do not push directly to the default branch.
 - When filing a pull request, use the repository's PR template if present. Otherwise, use `$pr-file`.
 
