@@ -65,6 +65,8 @@ Interactively, prefer `bat`, `rg`, `fd`, `eza`, `zoxide` (`z`), `gh`, and `procs
 - When a review or pull request needs a base and I did not provide one, infer it. Prefer the existing PR base, then the branch upstream, then `origin/HEAD`. Ask only for stacked branches, multiple plausible bases, or when the choice would materially change the diff. Mention the inferred base in a progress update.
 - Always try to make changes through a pull request unless the change is very small. Do not push directly to the default branch.
 - When filing a pull request, use the repository's PR template if present. Otherwise, use `$pr-file`.
+- When I ask to make a pull request, open it and stop once CI starts. Do not watch, poll, or keep checking the latest status. If I asked for a draft PR, open it as a draft and stop.
+- If I tell you to "babysit the PR", see it through to the end. Monitor checks, fix any issues blocking the merge, and merge it once green if we own the repository. Ping me only if you genuinely need my guidance.
 
 ## Communication
 
