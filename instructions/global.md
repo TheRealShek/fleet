@@ -6,33 +6,34 @@
 
 I am Abhishek. You are my agent. I love to build, and I focus on making complex things as simple as possible.
 My current system is Omarchy (Arch Linux) on x86_64, using Hyprland on Wayland, zsh, and pacman/yay.
-Address me as "Sire".
+Address me as "Sir".
 
 ## How I Think
 
 - I like ambitious ideas, but keep implementation grounded. Tell me when a bigger idea could improve the work.
 - Treat all code as production code. Choose the simplest complete solution without sacrificing correctness, security, failure handling, observability, or maintainability.
 - Never use subagents or multiple agents unless I explicitly ask, or the selected skill allows it in the Skill Registry below. No other skill, tool guidance, task complexity, or potential speed improvement is an exception.
-- When using a subagent and no model or reasoning effort is specified, prefer GPT-5.6 Sol with medium reasoning effort.
+- When using a subagent and no model or reasoning effort is specified, prefer GPT-6 Sol with medium reasoning effort.
 - In open-source repositories, follow the contribution guidelines, including `CONTRIBUTING.md` when present.
 
 ## Skill Registry
 
 Use a skill only when its rule below allows it. Read its `SKILL.md` before using it. If a skill is unavailable, read `/Drive2/Coding_Skills/fleet/.agents/skills/<skill-name>/SKILL.md` directly.
 
-| Skill | Can use it without me naming it? | What it does |
-|---|---:|---|
-| `articulate` | No | Turns my rough thought into a natural reply for social media. |
-| `code-review` | Yes, before opening a pull request | Reviews the change against the repo rules and the requested work. May use subagents. |
-| `commit-work` | No | Makes clean local commits for finished work. |
-| `diagnosing-bugs` | Yes, for a hard bug or performance issue | Finds the real cause by building a good way to reproduce the problem. |
-| `frontend-design` | No | Designs or reshapes a UI with a clear visual direction. |
-| `grill-with-docs` | No | Challenges an idea properly and keeps its docs up to date. May use subagents. |
-| `improve-codebase-architecture` | No | Looks for and tests better ways to structure the codebase. May use subagents. |
-| `pr-file` | Yes, when opening a PR without a repo template | Prepares and opens a clear pull request. |
-| `teach` | No | Explains how something works and why it is made that way. |
-| `tutor` | No | Teaches a topic through lessons over more than one session. |
-| `unslop` | Yes, always | Applies to every response to me and any text written or edited on my behalf. |
+| Skill                           |               Can use it without me naming it? | What it does                                                                         |
+| ------------------------------- | ---------------------------------------------: | ------------------------------------------------------------------------------------ |
+| `articulate`                    |                                             No | Turns my rough thought into a natural reply for social media.                        |
+| `code-review`                   | Yes, for medium or high complexity changes and before a PR if not already reviewed | Reviews the change against repo rules and the requested work. Skip small changes and redundant reviews. |
+| `commit-work`                   |                                             No | Makes clean local commits for finished work.                                         |
+| `diagnosing-bugs`               |       Yes, for a hard bug or performance issue | Finds the real cause by building a good way to reproduce the problem.                |
+| `frontend-design`               |                                             No | Designs or reshapes a UI with a clear visual direction.                              |
+| `grill-with-docs`               |                                             No | Challenges an idea properly and keeps its docs up to date. May use subagents.        |
+| `improve-codebase-architecture` |                                             No | Looks for and tests better ways to structure the codebase. May use subagents.        |
+| `pr-file`                       | Yes, when opening a PR without a repo template | Prepares and opens a clear pull request.                                             |
+| `rust-conventions`              |                                            Yes | Applies my Rust conventions when writing, reviewing, or changing Rust code.          |
+| `teach`                         |                                             No | Explains how something works and why it is made that way.                            |
+| `tutor`                         |                                             No | Teaches a topic through lessons over more than one session.                          |
+| `unslop`                        |                                    Yes, always | Applies to every response to me and any text written or edited on my behalf.         |
 
 ## Authority and Scope
 

@@ -1,6 +1,6 @@
 ---
 name: code-review
-description: Review code when explicitly requested or immediately before filing a pull request.
+description: Review medium or high complexity code changes, and changes before a pull request if they have not already been reviewed.
 ---
 
 Two-axis review of the diff between `HEAD` and a fixed point the user supplies:
