@@ -3,7 +3,7 @@ name: code-review
 description: Review medium or high complexity code changes, and changes before a pull request if they have not already been reviewed.
 ---
 
-Two-axis review of the diff between `HEAD` and a fixed point the user supplies:
+Two-axis review of all changes since a fixed point the user supplies, including working-tree changes:
 
 - **Standards** — does the code conform to this repo's documented coding standards?
 - **Spec** — does the code faithfully implement the originating issue / spec?
@@ -18,9 +18,11 @@ If `docs/agents/issue-tracker.md` exists, follow it when retrieving linked issue
 
 Whatever the user said is the fixed point — a commit SHA, branch name, tag, `main`, `HEAD~5`, etc. If they didn't specify one, ask for it.
 
-Capture the diff command once: `git diff <fixed-point>...HEAD` (three-dot, so the comparison is against the merge-base). Also note the list of commits via `git log <fixed-point>..HEAD --oneline`.
+Capture the committed comparison with `git diff <fixed-point>...HEAD` (three-dot, so the comparison is against the merge-base). Resolve that merge-base with `git merge-base <fixed-point> HEAD`, then use `git diff <merge-base>` for the full tracked diff, including staged and unstaged edits. Also note `git log <fixed-point>..HEAD --oneline` and `git status --short`; inspect untracked files in scope, since Git diffs omit them.
 
-Before going further, confirm the fixed point resolves (`git rev-parse <fixed-point>`) and the diff is non-empty. A bad ref or empty diff should fail here — not inside two parallel sub-agents.
+Before going further, confirm the fixed point resolves (`git rev-parse <fixed-point>`) and there are changes to review, including any untracked files in scope. A bad ref or empty change set should fail here — not inside two parallel sub-agents.
+
+Review all changes in that set, including edits made before this task. Identify changes the current agent did not make, or whose ownership is unclear. Include them in the audit without attributing them to the current task. Ask the user before changing those edits to fix a finding.
 
 ### 2. Identify the spec source
 
@@ -59,15 +61,15 @@ Each smell reads *what it is* → *how to fix*; match it against the diff:
 
 **Standards sub-agent prompt** — include:
 
-- The full diff command and commit list.
+- The full tracked diff command, untracked files in scope, commit list, and known change ownership.
 - The list of standards-source files you found in step 3, **plus the smell baseline from step 3** pasted in full — the sub-agent has no other access to it.
-- The brief: "Report — per file/hunk where relevant — (a) every place the diff violates a documented standard: cite the standard (file + the rule); and (b) any baseline smell you spot: name it and quote the hunk. Distinguish hard violations from judgement calls — documented-standard breaches can be hard, but baseline smells are always judgement calls, and a documented repo standard overrides the baseline. Skip anything tooling enforces. Under 400 words."
+- The brief: "Report — per file/hunk where relevant — (a) every place the diff violates a documented standard: cite the standard (file + the rule); and (b) any baseline smell you spot: name it and quote the hunk. Distinguish hard violations from judgement calls — documented-standard breaches can be hard, but baseline smells are always judgement calls, and a documented repo standard overrides the baseline. Label findings in pre-existing changes. Skip anything tooling enforces. Under 400 words."
 
 **Spec sub-agent prompt** — include:
 
-- The diff command and commit list.
+- The full tracked diff command, untracked files in scope, commit list, and known change ownership.
 - The path or fetched contents of the spec.
-- The brief: "Report: (a) requirements the spec asked for that are missing or partial; (b) behaviour in the diff that wasn't asked for (scope creep); (c) requirements that look implemented but where the implementation looks wrong. Quote the spec line for each finding. Under 400 words."
+- The brief: "Report: (a) requirements the spec asked for that are missing or partial; (b) behaviour in the diff that wasn't asked for (scope creep); (c) requirements that look implemented but where the implementation looks wrong. Quote the spec line for each finding, and label findings in pre-existing changes. Under 400 words."
 
 If the spec is missing, skip the Spec sub-agent and note this in the final report.
 

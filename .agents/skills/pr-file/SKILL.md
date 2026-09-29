@@ -12,10 +12,10 @@ description: File a pull request when intent is clear and the repository provide
 3. Check for an existing PR for the branch. Update or report it instead of creating a duplicate.
 4. Read each issue before linking it and confirm how the change relates to it.
 5. Run the relevant tests and record the results.
-6. Use `code-review` against the actual base branch as the final check immediately before opening the PR.
+6. Use `code-review` against the actual base branch if the complete current diff has not already been reviewed. Reuse a review that still covers the final diff.
 7. Address valid findings and rerun relevant tests before opening the PR. If a fix is not authorized, stop and report the finding instead.
 
-Do not commit, push, change branches, or alter code unless the user authorized it.
+Local commits follow the global `commit-work` rule. Do not push, change branches, or alter code unless the user authorized it.
 
 ## Write
 
@@ -35,6 +35,6 @@ Keep the description brief. Put breaking changes first. Do not narrate files, fu
 
 ## Open and Verify
 
-1. Open a ready PR when the work is complete. Use a draft only when it is incomplete or requested.
+1. Open a ready PR when the work is complete. Open a draft only when the user requests one.
 2. Verify the title, base, head, description, URL, and issue references. When using `Fixes`, confirm GitHub lists the closing issue.
 3. Report the PR link and any failed checks or blockers.

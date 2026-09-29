@@ -24,7 +24,7 @@ Use a skill only when its rule below allows it. Read its `SKILL.md` before using
 | ------------------------------- | ---------------------------------------------: | ------------------------------------------------------------------------------------ |
 | `articulate`                    |                                             No | Turns my rough thought into a natural reply for social media.                        |
 | `code-review`                   | Yes, for medium or high complexity changes and before a PR if not already reviewed | Reviews the change against repo rules and the requested work. Skip small changes and redundant reviews. |
-| `commit-work`                   |                                             No | Makes clean local commits for finished work.                                         |
+| `commit-work`                   | Yes, when a scoped local commit would help | Makes clean local commits for finished work.                                         |
 | `diagnosing-bugs`               |       Yes, for a hard bug or performance issue | Finds the real cause by building a good way to reproduce the problem.                |
 | `frontend-design`               |                                             No | Designs or reshapes a UI with a clear visual direction.                              |
 | `grill-with-docs`               |                                             No | Challenges an idea properly and keeps its docs up to date. May use subagents.        |
@@ -33,7 +33,7 @@ Use a skill only when its rule below allows it. Read its `SKILL.md` before using
 | `rust-conventions`              |                                            Yes | Applies my Rust conventions when writing, reviewing, or changing Rust code.          |
 | `teach`                         |                                             No | Explains how something works and why it is made that way.                            |
 | `tutor`                         |                                             No | Teaches a topic through lessons over more than one session.                          |
-| `unslop`                        |                                    Yes, always | Applies to every response to me and any text written or edited on my behalf.         |
+| `unslop`                        | Yes, for writing beyond direct replies | Cuts AI tells from documents, posts, comments, and other text written on my behalf. |
 
 ## Authority and Scope
 
@@ -49,7 +49,7 @@ Use a skill only when its rule below allows it. Read its `SKILL.md` before using
 - For bugs, inspect every caller of the changed function, not only the reported path.
 - Before creating a helper, utility, or pattern, search for an existing one and reuse it when it genuinely fits.
 - Compare reasonable options and make the smallest complete change.
-- Follow the Skill Registry. For medium- or high-complexity code changes, review the work, fix valid findings, and review again until none remain.
+- Follow the Skill Registry. For medium- or high-complexity code changes, review the complete change once, fix valid findings, and recheck affected code. Reuse a current review for a pull request when it still covers the final diff.
 
 ## Engineering Approach
 
@@ -79,17 +79,16 @@ Interactively, prefer `bat`, `rg`, `fd`, `eza`, `zoxide` (`z`), `gh`, and `procs
 ## Git and Pull Requests
 
 - Use authenticated gh commands instead of raw anonymous curl.
-- Do not commit, push, rebase, or reset unless I explicitly ask. Creating or switching to a scoped branch is allowed when working through a pull request.
+- Make scoped local commits for complete work when useful. Do not push, rebase, or reset unless I explicitly ask. Creating or switching to a scoped branch is allowed when working through a pull request.
 - When a review or pull request needs a base and I did not provide one, infer it. Prefer the existing PR base, then the branch upstream, then `origin/HEAD`. Ask only for stacked branches, multiple plausible bases, or when the choice would materially change the diff. Mention the inferred base in a progress update.
-- Always try to make changes through a pull request unless the change is very small. Do not push directly to the default branch.
+- Always try to make changes through a pull request. Do not push directly to the default branch unless I explicitly ask.
 - When filing a pull request, use the repository's PR template if present. Otherwise use `pr-file` from the Skill Registry.
 - When I ask to make a pull request, open it and stop once CI starts. Do not watch, poll, or keep checking the latest status. If I asked for a draft PR, open it as a draft and stop.
 - If I tell you to "babysit the PR", see it through to the end. Monitor checks, fix any issues blocking the merge, and merge it once green if we own the repository. Ping me only if you genuinely need my guidance.
 
 ## Communication
 
-- Lead with the answer or outcome. Add technical detail only when it helps explain an important decision, tradeoff, or risk.
-- Use only the formatting needed for clarity. Avoid generic praise, filler, and unnecessary repetition.
-- Always use the `unslop` skill for every response to me and any text you write or edit on my behalf, including READMEs, documentation, GitHub comments, messages, and pull-request text.
+- In replies to me, lead with the answer and use plain words, concrete facts, active voice, and one point per paragraph. Add technical detail only when it helps explain an important decision, tradeoff, or risk.
+- Use only the formatting needed for clarity. Cut filler, chatbot phrases, flattery, decorative language, generic conclusions, and unnecessary repetition. Avoid em dashes and use sentence-case headings. For documents, posts, comments, pull-request text, and other writing on my behalf, also use the full `unslop` skill.
 - Whenever you mention or list issues, pull requests, commits, or discussions (in text, lists, or tables), make them clickable hyperlinks to their actual web URLs (for example, link `#87` directly to the issue on GitHub) so I can open them immediately.
 - After making changes, finish with a standalone report using **Why**, **Changed**, and **Verified**. Add **Remaining** only for unresolved risks, failures, or blockers. Explain non-obvious root causes plainly.
