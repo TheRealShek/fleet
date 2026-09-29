@@ -33,6 +33,15 @@ Follow repository instructions when they conflict with these conventions.
 - Keep code idiomatic, including when an explicit implementation is easier to follow.
 - Use a loop or named intermediate values when they make an iterator or combinator chain easier to understand.
 - Avoid needless type complexity and indirection.
+- Write brief doc comments for most functions and structs, and for methods that need explanation. State their purpose or important behavior without restating the code or writing an essay.
+
+## Modules and crate layout
+
+- Organize modules around a clear responsibility, not one file per function. Keep related types and functions together. Split a file when it contains distinct responsibilities or when moving a cohesive part into its own module makes the code easier to navigate.
+- Prefer `foo.rs` with `foo/bar.rs` for child modules instead of `foo/mod.rs` in new code. Follow the repository's existing layout.
+- Keep implementation modules private when callers do not need them. Use `pub use` when it gives callers a clearer public path.
+- Use `pub(crate)` for items shared within a crate that should not be part of its public API.
+- Put reusable code in `src/lib.rs` when a binary or integration tests need it. Keep `src/main.rs` focused on starting the application and donot bloat the file.
 
 ## Dependencies
 
@@ -57,3 +66,7 @@ Follow repository instructions when they conflict with these conventions.
 - Add or update relevant tests when behavior changes.
 - Test observable behavior rather than implementation details.
 - Add tests when they cover meaningful behavior, not just to increase coverage or test count.
+
+## Final check
+
+- After writing or changing Rust code, review the final diff against every applicable rule in this skill before handing it off. Fix violations and explain any rule that could not be followed.

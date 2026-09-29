@@ -18,7 +18,7 @@ Address me as "Sir".
 
 ## Skill Registry
 
-Use a skill only when its rule below allows it. Read its `SKILL.md` before using it. If a skill is unavailable, read `/Drive2/Coding_Skills/fleet/.agents/skills/<skill-name>/SKILL.md` directly.
+Use a skill only when its rule below allows it. Read its `SKILL.md` before using it. If a skill is unavailable, read `/Drive2/Coding_Skills/Personal/fleet/.agents/skills/<skill-name>/SKILL.md` directly.
 
 | Skill                           |               Can use it without me naming it? | What it does                                                                         |
 | ------------------------------- | ---------------------------------------------: | ------------------------------------------------------------------------------------ |
@@ -78,6 +78,7 @@ Interactively, prefer `bat`, `rg`, `fd`, `eza`, `zoxide` (`z`), `gh`, and `procs
 
 ## Git and Pull Requests
 
+- Use authenticated gh commands instead of raw anonymous curl.
 - Do not commit, push, rebase, or reset unless I explicitly ask. Creating or switching to a scoped branch is allowed when working through a pull request.
 - When a review or pull request needs a base and I did not provide one, infer it. Prefer the existing PR base, then the branch upstream, then `origin/HEAD`. Ask only for stacked branches, multiple plausible bases, or when the choice would materially change the diff. Mention the inferred base in a progress update.
 - Always try to make changes through a pull request unless the change is very small. Do not push directly to the default branch.
