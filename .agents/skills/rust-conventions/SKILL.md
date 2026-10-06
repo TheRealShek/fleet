@@ -55,6 +55,11 @@ Follow repository instructions when they conflict with these conventions.
 - Do not complicate code to optimize performance speculatively.
 - Optimize when performance matters or the code is on a clear hot path.
 
+## Build cache and disk space
+
+- Use [kache](https://github.com/kunobi-ninja/kache) for Rust builds to reuse compiler outputs across projects and worktrees and reduce disk space used by duplicate build artifacts.
+- Follow kache's current setup documentation and preserve existing Cargo compiler-wrapper configuration. Verify the setup with `kache doctor` before relying on the cache.
+
 ## Unsafe Rust
 
 - Avoid `unsafe` unless the task requires it.
