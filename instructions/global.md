@@ -23,11 +23,14 @@ Use a skill only when the rules below allow it. Read its `SKILL.md` before using
 Use without being asked:
 
 - `rust-conventions`. Any Rust work.
+- `go-conventions`. Any Go work.
 - `code-review`. Medium or high complexity changes, and before a PR if not already reviewed. Skip small changes and redundant reviews. Review once, fix valid findings, recheck affected code. Reuse a review that still covers the final diff. May use subagents.
 - `commit-work`. When a scoped local commit helps.
 - `diagnosing-bugs`. Hard bugs and performance issues.
 - `pr-file`. Opening a PR when the repository has no PR template.
 - `unslop`. Writing beyond direct replies, including documents, posts, comments, and PR text.
+
+`teach`. Only when I name it. Explain technical topics from first principles, with concrete examples and engineering tradeoffs.
 
 Every other skill only when I name it. `grill-with-docs` and `improve-codebase-architecture` may use subagents.
 
