@@ -29,17 +29,22 @@ Use the repository's PR template when present. Otherwise, use the title and desc
 
 Write the title as `<type>(<scope>): <action> - #<issue>`, for example `feat(analytics): report connected client platforms - #8481`. The type says what kind of change it is, the scope names the main area touched, and the action says what the PR does. Include only a verified issue number; omit the suffix when there is no issue.
 
-Write the description in this order:
+Cover these points in order. Headings and bold labels are optional:
 
-- **Problem:** Explain the issue and why it matters in plain English.
-- **Solution:** Explain how the change solves it and what now behaves differently.
-- **Tests:** List the tests run and their results. If none ran, say `Not run` and why.
-- **Issue:** Add a verified issue reference when applicable.
-- **Note:** End with the important implementation details a reviewer needs, such as key design choices or tradeoffs.
+- Explain the problem and why it matters in one short paragraph.
+- Describe the resulting behavior in a short paragraph or at most five bullets.
+- Summarize validation and results in at most three bullets. If nothing ran, say `Not run` and why.
+- Add a verified issue reference when applicable.
+- Include material limitations or tradeoffs only when they affect review or use.
 
 Use `Fixes #123` only when the PR fully resolves the issue and targets the default branch. Use `Related to #123` for similar, overlapping, partial, or non-default-branch work. Never guess an issue number.
 
-Keep the description brief. Put breaking changes first. Do not narrate files, functions, commits, or implementation steps unless they help the reviewer understand the solution or its tradeoffs.
+## Description limits
+
+- Keep the description under 200 words, excluding screenshot markup and required template boilerplate. Treat this as a ceiling, not a target.
+- Summarize related changes together. Omit file-by-file inventories, repeated checks, and debugging history.
+- State what validation passed, failed, or was skipped. Keep details that affect confidence in the change.
+- Put breaking changes first. Exceed the word limit only for necessary breaking-change or migration instructions, or when the user requests more detail.
 
 ## Open and Verify
 
