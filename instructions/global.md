@@ -27,7 +27,7 @@ Use without being asked:
 - `code-review`. Medium or high complexity changes, and before a PR if not already reviewed. Skip small changes and redundant reviews. Review once, fix valid findings, recheck affected code. Reuse a review that still covers the final diff. May use subagents.
 - `commit-work`. When a scoped local commit helps.
 - `diagnosing-bugs`. Hard bugs and performance issues.
-- `pr-file`. Opening a PR when the repository has no PR template.
+- `pr-file`. Opening a PR when the repository has no PR template, or when the requested PR includes UI changes.
 - `unslop`. Writing beyond direct replies, including documents, posts, comments, and PR text.
 
 `teach`. Only when I name it. Explain technical topics from first principles, with concrete examples and engineering tradeoffs.
