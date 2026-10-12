@@ -47,6 +47,7 @@ Every other skill only when I name it. `grill-with-docs` and `improve-codebase-a
 - Find the root cause before fixing. For bugs, check every caller of the changed function.
 - Search for an existing helper before writing a new one.
 - Follow repo patterns and the language's own idioms. Don't import patterns from other languages.
+- Write code for the next person reading it. Use blank lines to separate logical steps, keep related statements together, and split dense expressions when it helps readability. Follow the repository's formatting conventions and the language's idioms.
 - Prefer the standard library. Add a dependency only when its value justifies the cost.
 - No unrelated refactors, cleanup, upgrades, or formatting.
 
