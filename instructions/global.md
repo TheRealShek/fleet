@@ -32,6 +32,8 @@ Use without being asked:
 
 `teach`. Only when I name it. Explain technical topics from first principles, with concrete examples and engineering tradeoffs.
 
+`html-communication`. Only when I explicitly ask to make an HTML PPT.
+
 Every other skill only when I name it. `grill-with-docs` may use subagents.
 
 ## Authority and scope

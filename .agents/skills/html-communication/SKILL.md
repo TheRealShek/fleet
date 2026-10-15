@@ -1,125 +1,172 @@
 ---
 name: html-communication
-description: Use when explicitly asked to create HTML slides for a narrated video or presentation.
+description: Use only when explicitly asked to create an HTML PPT.
 ---
 
 # HTML communication
 
-Create a clear, visually rich HTML presentation that supports spoken teaching. Combine diagrams, concise explanations, code, and examples to help the audience follow the talk. Include enough context to follow the explanation while leaving the full narration to the presenter. Keep the implementation simple.
+Create HTML slides that support spoken technical teaching. Use diagrams, code, examples, and short explanations to help the audience follow the presenter. Keep the implementation simple.
 
-Read and apply [unslop](../unslop/SKILL.md) to all text you author for the task, including proposals, slide copy, diagram labels, code comments, accessibility descriptions, and delivery text. Preserve source code, identifiers, and quoted text when editing them would change their meaning or accuracy.
+Read and apply [unslop](../unslop/SKILL.md) to all authored text, including proposals, slide copy, diagram labels, code comments, accessibility descriptions, and delivery text. Preserve the meaning and accuracy of source code, identifiers, and quotations.
 
-## Understand and propose
+## Plan with the user
 
-- Start with the user's video idea and directions. Ask about the audience, intended takeaway, or duration only when the missing answer would change the flow.
-- Let the requested technical subject and format set the scope. For a code flow or mechanism walkthrough, keep that explanation central. Add background, comparisons, status, or roadmap material only when it supports the requested understanding or the user asks for it.
-- For a project walkthrough, inspect the relevant docs and code before proposing slides. Follow the parts needed to understand the topic rather than reading the whole repository. Ask for the project location if it is unavailable.
-- Ground claims about existing behavior in the implementation. Keep what is built, what is planned, and your suggestions distinct. Raise important conflicts between docs and code before presenting them as facts. If the code does not support a requested topic, suggest a nearby topic it does support.
-- Propose a concise slide-by-slide flow. For each slide, describe its takeaway, named layout, main visual, and reveal steps when needed. Briefly identify the sources behind project claims and any important gaps. Cover the user's goal, including what matters and what can be left out.
-- Ask for the user's opinion on the flow. Revise it together and wait for approval before creating the deck. If the user changes the scope later, revisit the affected slides.
+- Start with the video idea and directions. Ask about the audience, takeaway, duration, or project location only when missing information affects the plan.
+- Keep the requested technical subject and format central. Include background, comparisons, status, and roadmap material only when requested or needed to understand the topic.
+- Inspect the relevant docs and code. Ground claims about current behavior in the implementation. Separate existing behavior, plans, and your suggestions. Raise conflicts between docs and code; suggest a supported alternative when a requested topic is absent.
+- Propose each slide's takeaway, named layout, and main visual. Briefly identify supporting sources and gaps. Ask for the user's opinion, revise the flow, and wait for approval before building. Revisit affected slides if the scope changes.
+- If a facecam will overlay the slides, confirm its size and placement. Otherwise reserve no facecam space.
 
-## Compose the presentation
+## Opening slide
 
-- Give each slide a clear takeaway, supported by enough detail for the presenter to explain it. A useful opening, scope list, limitations, or next-steps slide can belong in the flow. Choose the slide count from the story and depth the topic needs.
-- For each technical concept, establish what the audience needs to understand, then choose the content, representation, and depth that make it clear. Select useful details from the available information. A useful progression is to introduce the idea, demonstrate it with a concrete example, and explain the relevant internals. Adapt that progression to the topic and audience rather than making it a fixed slide formula. Include failure cases and tradeoffs when they help understanding.
-- Introduce unfamiliar concepts and project-specific terms before relying on them. Use the same names throughout and connect implementation names to the concepts they represent.
-- Choose a layout from the frame below according to the explanation. Use it consistently within the deck, adapting only when the content needs a different arrangement.
-- Compose each slide around a focal explanation. Give a requested technical diagram or mechanism most of the body; a smaller code or annotation column can support it. Use size, position, spacing, contrast, and grouping to make the main explanation recognizable immediately. Keep supporting material subordinate, titles compact, and related elements aligned. Use equal panels for genuine comparisons.
-- Choose representations for the relationships, changes, comparisons, structures, or outcomes they reveal. Vary layouts when the explanation benefits, rather than to meet a variety quota. Technical flow slides should retain a prominent diagram; other slides may center on code, a comparison, or a short list when that better serves the user's topic.
-- Aim for at most 25 words of explanatory prose per slide, with 40 as the ceiling when essential context needs it. Count across all reveal steps. Exclude the title, short diagram labels, actual code, and source paths; do not move paragraphs into diagrams to evade the budget. Use compact callouts and let the presenter supply the narration.
-- Show how data moves or state changes, using concrete details such as record contents, offsets, ownership, request fields, or failure paths. Prefer actual project examples and code when available, and clearly label illustrative inputs. A component list or generic chain of boxes can orient the audience; develop the explanation by tracing what happens to a specific example.
-- Develop one mechanism through reveal steps within the same slide. Use another slide for a distinct concept or a flow that cannot fit readably, rather than creating near-identical slides for each operation. Keep names, positions, and visual meaning consistent.
-- Balance density with readability. Remove decoration and repeated prose before removing useful facts. Split overloaded slides, while giving related code, visuals, and explanations enough space together. Do not reduce every slide to a single row of boxes.
-- Use available space to clarify the example, relationships, or consequences. Avoid oversized headings, inflated cards, or enlarged labels that crowd out useful detail. Leave breathing room deliberately; do not pad a weak composition with trivia or extra boxes.
+Start every deck with a static `Title and goal` slide. Follow it directly with the technical explanation, without an agenda or overview slide in between.
+
+- Main title: the topic in one line, at most 8 words. Use 64px semibold, left-aligned in the upper part of the main area.
+- Goal: one or two sentences, at most 25 words, stating what the viewer will understand by the video's end. Start with a verb, such as "Understand how mini-kafka stores a record and assigns its offset." Put a small secondary-text "Today's goal" label above the goal, with the goal itself below the title at 40px in primary text.
+- Use only these two parts, with no diagram, code, or bullet list. Omit the normal title-band heading. Do not repeat the opening title or goal text elsewhere in the deck.
+- Derive both from the user's topic and directions. If the goal is unclear, ask before proposing the slide flow. Include the exact title and goal in the proposal for approval before building.
+
+## Conclusion slide
+
+End every deck with one static conclusion slide. Add no separate thank-you, questions, or roadmap slide after it.
+
+- Title: "Summary" or a topic-specific label in one line, at most 6 words. Use 64px semibold, left-aligned at the opening title's position.
+- Takeaways: two to four items drawn from what the approved slides already show. Each starts with a verb or concrete noun and has at most 12 words. Keep all takeaway text within 25 words total. Introduce no new facts, code, or diagrams.
+- Set takeaways at 40px in primary text, left-aligned, one item per line with a small blue numbered marker. Match the opening slide's background, margins, and type styles. Show every item immediately.
+- For a project-progress deck, optionally add one bottom line of at most 15 words naming the single next step. Include the exact conclusion title, takeaways, and any next-step line in the proposal for approval before building.
+
+## Teach through the composition
+
+- Give each slide one clear takeaway. Choose the content and depth for what the audience needs to learn. Introduce unfamiliar terms before relying on them, and keep names consistent.
+- Build understanding through a concrete example and its internal mechanism. Show data movement, state changes, and relevant failures or tradeoffs. Use project examples where available and label illustrative inputs.
+- Give a requested flow or mechanism most of the slide body. Connect supporting code and annotations through placement, alignment, grouping, labels, or leaders. Keep titles and supporting text subordinate to the main explanation.
+- Choose representations for the relationships, changes, comparisons, structures, or outcomes they expose. Vary layouts when useful, without a variety quota. Code, short lists, and comparisons can lead a slide when they serve the topic.
+- Aim for at most 25 words of explanatory prose per slide, with 40 as the ceiling for essential context. The opening and conclusion keep their stricter limits above. Exclude the title, short diagram labels, actual code, and source paths. Do not disguise paragraphs as diagram labels.
+- Show the whole explanation when a slide opens. Use numbered operations or before/after views to explain progression without hiding content. Use another slide for a distinct concept or a flow that cannot fit readably; avoid near-identical slides for individual operations.
+- Remove repetition and decoration before useful detail. Use space for examples and relationships, without inflating headings or cards. Keep enough context for the talk without writing the presenter's narration.
 
 ## Frame and layouts
 
-Use a 1920 × 1080 canvas with 80px outer margins. The usable width is 1760px. Reserve a 120px title band, a 24px gap, a 736px main area, and a 40px footer for navigation. Use 32px gutters between main-area columns.
+Use a 1920 × 1080 canvas with 80px outer margins and 1760px usable width. Inside the margins, allocate 120px for the title band, a 24px gap, 736px for the main area, and 40px for navigation. Use 32px column gutters.
 
-- Fit the complete header stack inside the title band, including any eyebrow, wrapped title, subtitle, line heights, margins, and gaps. Shorten the wording or remove optional header elements when they do not fit. The main area must begin after the title band and its gap, without covering header text.
-- Keep panels and their contents within their assigned main-area zones in every reveal state. Include padding and borders in the size budget, and reserve space for hidden future content. Constrain grid children so intrinsic code or text sizes cannot silently enlarge the tracks; then resolve any remaining content overflow.
-
-Choose from these layouts by default:
-
-| Layout | Main-area structure |
+| Layout | Main area |
 | --- | --- |
-| Diagram plus code | 1152px diagram zone and 576px code zone |
-| Full diagram | One 1760px diagram zone with anchored annotations |
-| Before/after | Two 864px state zones, with the operation connecting them |
-| Comparison | Two 864px zones with aligned properties and differences |
-| File tree plus callouts | 576px tree zone and 1152px connected responsibility or flow zone |
+| Diagram plus code | 1024px diagram and 704px code |
+| Full diagram | 1760px diagram with anchored annotations |
+| Before/after | 800px state, 160px operation including gaps, 800px state |
+| Comparison | Two 864px zones with aligned properties |
+| File tree plus callouts | 576px tree and 1152px connected callouts or flow |
 
-If the user will overlay a facecam, confirm its placement and size in the brief. Default to a 320 × 180px safe area at the main area's bottom-right when no other placement is given. Keep labels, code, and connectors outside that area. Reserve no facecam space when none is requested. Keep the frame steady during reveals, including space for hidden future steps.
+For content slides, choose from these layouts by default; adapt when the explanation needs it. Use equal panels for comparisons, and keep component styling consistent across layouts.
 
-## Draw mechanisms and connect code
+- Fit the entire header within its band, including wrapped titles, subtitles, eyebrows, line heights, margins, and gaps. Shorten wording or remove optional elements when needed. Keep the gap before the main area clear.
+- Keep panels and content inside their assigned zones. Budget for padding and borders. Constrain grid children so intrinsic text or code sizes cannot enlarge their tracks.
+- If a facecam is requested without a specific placement, reserve a 320 × 180px area at the main area's bottom-right. Keep code, labels, and connectors outside it.
 
-- Honor explicit diagram requests. When the user asks for Mermaid, use it for the requested diagrams. Otherwise prefer Mermaid for sequence diagrams and handwritten HTML/CSS/SVG for byte layouts, offsets, record stacks, and precise state changes. Standard notation is welcome; diagrams need faithful technical detail and clear relationships, not decorative complexity.
-- For Mermaid, set the diagram type's `useMaxWidth: false`, a base font of at least 28px, and explicit label sizes. A practical starting configuration is `fontFamily: 'IBM Plex Sans', fontSize: 32, themeVariables: {fontSize: '32px'}`, with `sequence: {useMaxWidth: false, actorFontSize: 32, messageFontSize: 32, noteFontSize: 32}` or `flowchart: {useMaxWidth: false}` as appropriate. Measure the final SVG after fitting it into its zone. Every diagram label must remain at least 28px at canvas scale; increase source sizes, relayout, or divide the flow when needed. Disabling automatic width alone does not guarantee readable text.
-- For a working codebase flow, trace the actual entry points, calls, data passed, state changes, and results relevant to the topic. Show important branches, errors, or concurrency boundaries when they affect the explanation. Use implementation names where useful and distinguish current execution from proposed behavior. Expand a broad flow across focused diagrams when needed, without adding unrelated presentation sections.
-- Show the transformation. For an append operation, reveal the incoming payload and initial log, then the assigned offset and inserted record, then the updated counter and returned value. Keep unchanged data recognizable and emphasize what changed. Use the reveal controller below to advance the explanation.
-- Make code part of the visual explanation. Select the relevant operations or fields, highlight them, and connect them to the matching record, pointer, byte range, or state change with anchored leaders, step numbers, or matching accent labels. Syntax coloring alone does not explain the operation. Show a useful source path and clearly mark omissions or simplified pseudocode.
-- Use purple `#d0b8ed` for keywords, green `#a3d2b4` for strings, blue `#9dc7e8` for types, and orange `#e8b887` for comments in the active code operation. Give its line or line group a `#45443f` background bar, an accent stripe, and the matching reveal-step number. Render unhighlighted revealed lines in secondary text color. Keep code emphasis synchronized with the diagram.
-- Wrap long Rust or Go signatures at syntactic boundaries, placing parameters and generic bounds on separate lines. Show only relevant fields or operations and mark omitted signature details clearly. Preserve valid syntax in excerpts presented as actual code. Avoid horizontal scrolling, clipped generics, or shrinking the entire excerpt to fit one long line.
-- Give structures meaningful internal detail instead of generic names alone. Show fields inside a record, indexes beside stored entries, ownership around shared state, or byte boundaries inside a request when those details teach the concept. Route connectors to the elements they describe, keep arrow direction clear, and place labels beside the relevant connection.
-- Style components consistently within the deck: distinct header and value areas, subtle tinted fills, measured corner radii, and a clear difference between group boundaries and individual items. Let color identify corresponding operations and structures, with labels preserving the meaning. Vary the composition without changing the visual vocabulary on every slide.
+## Diagrams and code
 
-## Reveal and navigation
+Honor explicit diagram requests. Use Mermaid when requested. Otherwise prefer Mermaid for sequences and handwritten HTML/CSS/SVG for byte layouts, offsets, record stacks, and precise state changes.
 
-- Implement one plain-JavaScript controller with a slide index and a step index. Give each staged element a `data-step` number shared by its diagram, code highlight, and annotation. A slide starts at step zero. Static overview or comparison slides may have one step.
-- Right Arrow and the next button advance a step. After the final step, they open the next slide at step zero. Left Arrow and the previous button reverse a step; from step zero, they open the previous slide at its final step. Clamp at the deck's beginning and end. Show the slide counter and, on staged slides, a discreet step counter.
-- Hide navigation chrome, including buttons, counters, and their background, while idle. Keep a stable hover area in the reserved footer; reveal the controls only while that area is hovered or contains keyboard focus. Use an opacity change without shifting content, and disable pointer events on invisible controls while keeping them reachable by Tab. Hovering elsewhere on the slide must not reveal the bar. Keep this behavior in fullscreen too.
-- Pressing `F` toggles browser fullscreen for the deck through the Fullscreen API. Enter with the deck container's `requestFullscreen()` and leave with `document.exitFullscreen()`. Ignore held-key repeats, modified shortcuts, and typing in editable fields. Handle rejected requests without breaking the presentation. On `fullscreenchange`, refit the canvas to the available viewport while preserving the current slide and reveal step; exiting with `F` or Escape restores the normal view.
-- The current step is fully opaque with its accent emphasis. Earlier visual elements remain at about 50% opacity; future steps use `visibility: hidden` and are hidden from assistive technology without changing layout. Keep titles and persistent context visible. Keep still-needed labels and code in a separate opaque secondary-text layer so dimming shapes does not make the explanation unreadable. Hidden elements must not retain keyboard focus.
-- Advancing or reversing updates visibility and emphasis immediately, with no autoplay or timed animation. Retain the same geometry and scroll position across steps. Give the new record and its code operation matching emphasis. Overviews and comparisons can give several elements equal weight.
+- Trace actual entry points, calls, data, state changes, and results. Include branches, errors, and concurrency boundaries when they affect the explanation. Distinguish implemented execution from proposed behavior.
+- Draw meaningful structure: fields inside records, indexes beside entries, byte boundaries, ownership groups, or sequence lifelines. Anchor connectors to the relevant elements and label their direction and meaning.
+- Show transformations. For an append, display the incoming payload and initial log alongside the assigned offset, inserted record, updated counter, and returned value. Use arrows or operation numbers to show order, keeping unchanged data recognizable.
+- Connect relevant code operations or fields to their corresponding structures and changes through leaders, matching accents, or step numbers. Show a useful source path. Mark omissions and pseudocode.
+- In the operation being explained, color keywords purple, strings green, and types blue. Keep comments secondary. Use the code-line background, an orange stripe, and matching operation numbers to connect code to the diagram. Use secondary text for supporting code without hiding it.
+- Use code at least 32px and target about 30 characters per line in the code column. Measure after padding and annotation gutters. Wrap Rust and Go signatures at syntactic boundaries, keeping actual excerpts valid. Mark omissions instead of clipping, scrolling, or shrinking code.
+- Use distinct header and value areas, subtle tinted fills, and consistent corner radii. Make group boundaries distinguishable from individual items. Pair meaningful colors with labels, shapes, or line styles.
 
-## Visual defaults
+For Mermaid, disable automatic width on the diagram type and set base and label sizes to at least 28px. Start with a configuration such as:
 
-- Use IBM Plex Sans for titles, labels, and explanations, with regular 400 and semibold 600. Use IBM Plex Mono or another readable monospace for code and identifiers, with restrained syntax highlighting. Avoid condensed type and all caps except acronyms. Inter is an alternative when the user prefers it.
-- On the design canvas, start around 56–64px for titles, 36–44px for primary labels, 28–32px for supporting text, and 24–30px for code. Keep diagram labels at least 28px after SVG fitting. Keep the title and subtitle within their band, and keep source paths and metadata discreet. Keep short labels centered and longer text left-aligned.
-- Use 24–32px panel padding, at least 3px meaningful borders, and 3–5px connectors at canvas scale. Define structure with clear borders and header bars as well as the brighter panel fill; do not rely on a dark fill difference alone. Keep alignment and spacing consistent, with clear arrowheads and simple routing without crossings.
-- Keep a warm charcoal base with off-white text. Use a few purposeful accent colors for components, relationships, code, and emphasis, with lightly tinted panels where helpful. Keep the meaning of each accent consistent across slides. Avoid pure black, distracting effects, and gratuitous color.
+```js
+mermaid.initialize({
+  theme: 'base',
+  securityLevel: 'strict',
+  htmlLabels: false,
+  fontFamily: 'IBM Plex Sans',
+  fontSize: 32,
+  themeVariables: {
+    darkMode: true, fontSize: '32px', background: '#242320',
+    primaryColor: '#3a3935', primaryTextColor: '#faf9f5', primaryBorderColor: '#918e84',
+    secondaryColor: '#3a3935', secondaryTextColor: '#faf9f5', secondaryBorderColor: '#918e84',
+    tertiaryColor: '#3a3935', tertiaryTextColor: '#faf9f5', tertiaryBorderColor: '#918e84',
+    textColor: '#faf9f5', lineColor: '#a6a399', edgeLabelBackground: '#242320',
+    noteBkgColor: '#3a3935', noteTextColor: '#faf9f5', noteBorderColor: '#918e84'
+  },
+  sequence: {
+    useMaxWidth: false,
+    actorFontSize: 32,
+    messageFontSize: 32,
+    noteFontSize: 32
+  },
+  flowchart: { useMaxWidth: false }
+});
+```
+
+After fitting the SVG into its zone, require every diagram label to be at least 28px at canvas scale. Increase source sizes, adjust layout, or divide the flow when needed. Configuration alone does not establish readability.
+
+## Typography and color
+
+Use IBM Plex Sans regular 400 and semibold 600 for text, with semibold titles and primary labels. Use IBM Plex Mono or another readable monospace for code and identifiers. Inter is an alternative if the user prefers it. Avoid condensed type and all caps except acronyms.
+
+| Element | Starting size at canvas scale |
+| --- | --- |
+| Title | 56 to 64px |
+| Primary label | 36 to 44px |
+| Supporting text | 28 to 32px |
+| Code | 32px minimum |
+
+Keep short labels centered, longer text left-aligned, and source paths discreet. Use 24 to 32px panel padding, meaningful borders of at least 3px, and connectors of 3 to 5px. Define structure with borders and header bars as well as fills. Keep routes clear and arrowheads readable.
 
 | Role | Color |
 | --- | --- |
 | Canvas | `#242320` |
 | Node surface | `#3a3935` |
-| Active code-line bar | `#45443f` |
+| Highlighted code-line bar | `#45443f` |
 | Primary text | `#faf9f5` |
-| Secondary text | `#c8c5bc` |
+| Secondary text / comments | `#c8c5bc` |
 | Connectors | `#a6a399` |
 | Meaningful borders | `#918e84` |
-| Warm orange accent | `#e8b887` |
-| Blue accent | `#9dc7e8` |
-| Green accent | `#a3d2b4` |
-| Purple accent | `#d0b8ed` |
+| Orange / operation being explained | `#e8b887` |
+| Blue / data and code types | `#9dc7e8` |
+| Green / new state and strings | `#a3d2b4` |
+| Purple / code keywords | `#d0b8ed` |
+| Red / failure | `#f0a0a0` |
 
-- Keep important labels opaque. Aim for 7:1 primary text contrast and at least 4.5:1 for secondary text and syntax colors; meaningful boundaries and connectors need at least 3:1 against adjacent colors. Check actual foreground/background pairs, including active-line bars, tinted panels, and dimmed states. Primary text exceeds 7:1 on both base surfaces; secondary text and accents exceed 4.5:1.
-- Pair color with labels, shapes, or line styles when it conveys meaning. For example, explicitly label built and planned components and use solid versus dashed borders, with a small key when needed.
-- Default to embedding Plex Sans regular, Plex Sans semibold, and Plex Mono as WOFF2 data URLs in `@font-face`, preserving license notices. A few hundred KB of font data in `index.html` is acceptable for these one-off decks. Local bundled WOFF2 files are also acceptable when the user prefers separate assets. Do not depend on installed fonts or a CDN. Load fonts before rendering or measuring diagrams.
+Keep accent meanings consistent. Use a warm charcoal base, off-white text, and purposeful accents. Avoid pure black and distracting effects.
 
-These defaults draw on [IBM's technical diagram guidance](https://www.ibm.com/design/language/infographics/technical-diagrams/design/), [Anthropic's published brand reference](https://github.com/anthropics/skills/blob/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/brand-guidelines/SKILL.md), [WCAG contrast guidance](https://www.w3.org/WAI/WCAG22/Understanding/contrast-enhanced.html), and Mermaid's [diagram sizing](https://mermaid.js.org/config/schema-docs/config-defs-base-diagram-config.html) and [sequence font configuration](https://mermaid.js.org/config/schema-docs/config-defs-sequence-diagram-config.html). The type sizes, geometry, and accent choices are adaptations for these presentations.
+Keep important labels opaque. Aim for 7:1 primary text contrast, at least 4.5:1 for secondary text and syntax colors, and 3:1 for meaningful boundaries and connectors. Recheck actual pairs on tinted panels and highlighted code lines.
 
-## Build the deck
+## Navigation and transitions
 
-- Save each presentation in its own folder under `/Drive2/Coding_Skills/HTML-Communication/<topic>/`, with `index.html` as the entry point. Choose a new folder when a name already belongs to another presentation. Preserve existing work.
-- Use plain HTML, CSS, and JavaScript. Avoid application frameworks, build systems, slide libraries, and extra dependencies beyond Mermaid unless the user requests them.
-- Make the finished deck open directly in Chrome through `index.html`. When using Mermaid, render diagrams during creation and embed their SVGs, retaining the source inside the HTML for edits. Keep scripts and styles inline where practical. Playback should not require a server or network requests.
-- Default to a 1920 × 1080 presentation canvas with one slide visible at a time. Fit the canvas to the window while preserving its 16:9 proportions.
-- Use the reveal controller for previous and next navigation with arrow keys and discreet buttons. Preserve normal keyboard behavior within focused interactive controls.
-- Keep navigation keyboard accessible and diagrams meaningfully described for assistive technology without adding visible prose. Escape source content before inserting it into HTML and keep Mermaid's strict security setting.
-- Deliver only the presentation and any assets it actually needs. Do not add speaker notes, narration scripts, planning documents, or a separate application around it.
+Use one plain-JavaScript controller with a slide index. All slide content is visible on entry. Do not implement reveal steps, subviews, or step counters.
 
-## Check and deliver
+- Right Arrow or Next opens the next slide. Left Arrow or Previous opens the previous slide. Clamp at both ends of the deck and show a slide counter.
+- Use a 200ms ease-out fade with about 32px horizontal movement between slides. Moving forward brings the new slide from the right while the old slide exits left; moving backward reverses the direction. Animate slide layers, not the canvas-fit transform. Prevent overlapping transitions during rapid navigation, and restore final positions and full opacity afterward.
+- Respect `prefers-reduced-motion` with immediate switching. Keep content still within a slide, with no autoplay. Only the current slide may receive focus or be exposed to assistive technology.
+- Hide buttons, the counter, and their background at rest. Show them only on footer hover or keyboard focus within the footer. Keep a stable hover area, disable pointer events on invisible controls, and keep buttons reachable by Tab.
+- Hide the cursor over the deck and its controls after two seconds without pointer activity. Restore it immediately on pointer movement or a click, without disturbing keyboard focus.
+- `F` toggles fullscreen through the deck container's `requestFullscreen()` and `document.exitFullscreen()`. Handle rejected promises. On `fullscreenchange`, refit the canvas while preserving the current slide. Support Escape to exit.
+- Ignore held-key repeats, modified shortcuts, and typing in editable fields. Preserve normal keyboard behavior within focused controls. Keep navigation behavior consistent in fullscreen.
 
-- Render a representative mechanism slide early to check composition and component styling before repeating the approach across the deck.
-- Open the actual generated page in an available browser. Confirm requested diagrams are present, fully rendered, readable, and prominent enough to explain the flow. Inspect every reveal state for clipping, overlap, unintended visibility, focusable hidden content, and accidental scrollbars at the intended recording size.
-- After fonts load, measure rendered header, panel, and content bounds against their assigned regions in every reveal state. Check both content overflowing a panel and whole panels exceeding the main area. Resolve failures by shortening, rearranging, or moving content to another meaningful slide, then remeasure. Clipping, hidden overflow, and smaller unreadable text do not count as fixes.
-- Inspect screenshots of individual slides and an overview of the deck. When the user supplies a visual reference, compare actual panel proportions, spacing, density, hierarchy, component styling, color roles, and layout variety against it. Treat it as a design quality target while keeping the presentation's own content and layouts. Do not copy its code or factual claims. Use the written criteria when no reference is available; do not bundle a reference image into the skill.
-- Identify specific composition weaknesses and redesign them before delivery: a title that overpowers the mechanism, repeated equal-sized cards, unconnected code and data, weak grouping, text-heavy panels, default diagrams, or unused space where a concrete example needs detail. Verify the revised render. Successful loading and accurate text do not establish visual quality.
-- Review the deck as a whole for narrative progression, useful detail, and layout variety. Check that unfamiliar terms are introduced and that mechanism explanations show what happens to data or state. Revise repeated generic diagrams, decorative visuals that explain nothing, and slides too sparse to support the intended explanation. Check the selected code and factual claims against their sources.
-- Review from the audience's perspective: what attracts attention first, can they trace the intended mechanism and its related elements, and can they follow the presenter without reading every panel? Revise competing support text and remove material that distracts from the requested technical subject.
-- Measure the smallest visible diagram text after SVG fitting and transforms, correcting for the outer slide-to-window scale. Require at least 28px at the 1920px canvas scale, then inspect at 1280 × 720 and a realistic playback width. Verify the intended font loaded; source font sizes alone do not establish readability. Check the prose budget, syntax colors, panel boundaries, and any facecam safe area.
-- Check forward and reverse steps, transitions between slides, the first and last deck boundaries, and a smaller window. Confirm future content stays hidden and geometry stays stable. Confirm the finished page works through a local file URL without network access.
-- Check `F` to enter and exit fullscreen, Escape to exit, and canvas fitting without losing the current step. Verify the entire navigation bar is invisible at rest, appears on footer hover or keyboard focus, and disappears after both leave, in normal and fullscreen views.
-- Fix visual and factual problems before delivery. If browser verification is unavailable, say which checks remain unverified.
-- Give the user the path to `index.html` and briefly report what was checked. Keep research references in the conversation, away from the recording canvas, unless the user wants visible attribution.
+## Build and save
+
+- Use plain HTML, CSS, and JavaScript with Mermaid as the only optional deck dependency. Authoring may use an available browser or renderer; those tools are not playback dependencies.
+- Save each deck at `/Drive2/Coding_Skills/HTML-Communication/<topic>/index.html`. Preserve existing work and choose a new folder for an unrelated deck with the same name.
+- Use `IBMPlexSans-Regular.woff2`, `IBMPlexSans-SemiBold.woff2`, and `IBMPlexMono-Regular.woff2` from this skill's `assets/fonts/`. Embed them in `@font-face` or copy them beside the deck. Include `assets/fonts/OFL.txt`. A few hundred KB is acceptable. Load fonts before measuring or rendering.
+- Render Mermaid during creation and embed its SVGs, retaining the source inside the HTML. Keep scripts and styles inline where practical. Open directly in Chrome without a server, installed fonts, or network access.
+- Show one slide at a time, fitted to the viewport at 16:9. Set the page and fullscreen backdrop to the canvas color so letterboxing matches. Keep navigation and diagram descriptions accessible, escape inserted source content, and retain Mermaid's strict security setting.
+- Deliver only the presentation and required assets. Leave out narration scripts, speaker notes, planning documents, and an application around the deck.
+
+## Verify and deliver
+
+Render a representative mechanism slide early. Check its composition before repeating the design across the deck.
+
+- Before delivery, open every slide in the browser after fonts load, at both 1920 × 1080 and 1280 × 720. Check settled layouts after transitions finish.
+- Check bounded layout containers and text/code blocks for `scrollWidth > clientWidth` or `scrollHeight > clientHeight`, even when overflow is hidden. These layout measurements are unaffected by the fit-to-window transform; do not scale them.
+- For region checks, use `scale = canvas.getBoundingClientRect().width / 1920`. Subtract the canvas rectangle's left/top from each element rectangle's left/top, then divide those offsets and its width/height by `scale`. Compare these canvas coordinates with the assigned header, panel, and main-area bounds, never viewport rectangles directly with canvas dimensions.
+- Visually inspect each slide for clipping, overlap, readability, and hierarchy. Check the approved opening and conclusion, technical accuracy, text limits, diagram sizes, controls, and offline playback. Test transitions in both directions, rapid navigation, and reduced motion.
+- Fix failures and repeat affected checks. Do not conceal overflow or shrink text below its minimum size. Deliver the `index.html` path and list the slides and both viewport sizes checked, plus any failures or unverified checks. Keep research links in the conversation unless visible attribution is requested.
+
+## Sources
+
+These defaults draw on [IBM technical diagrams](https://www.ibm.com/design/language/infographics/technical-diagrams/design/), [Anthropic's brand reference](https://github.com/anthropics/skills/blob/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/brand-guidelines/SKILL.md), [WCAG contrast guidance](https://www.w3.org/WAI/WCAG22/Understanding/contrast-enhanced.html), and Mermaid's [themes](https://mermaid.js.org/config/theming.html), [sizing](https://mermaid.js.org/config/schema-docs/config-defs-base-diagram-config.html), and [sequence configuration](https://mermaid.js.org/config/schema-docs/config-defs-sequence-diagram-config.html). Bundled fonts and their license come from [IBM Plex](https://github.com/IBM/plex/tree/39276912b05f700ee1dd491950c35d8697214208).
