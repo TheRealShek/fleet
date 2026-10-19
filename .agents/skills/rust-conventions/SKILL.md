@@ -33,7 +33,18 @@ Follow repository instructions when they conflict with these conventions.
 - Keep code idiomatic, including when an explicit implementation is easier to follow.
 - Use a loop or named intermediate values when they make an iterator or combinator chain easier to understand.
 - Avoid needless type complexity and indirection.
-- Write brief doc comments for most functions and structs, and for methods that need explanation. State their purpose or important behavior without restating the code or writing an essay.
+- Separate logical steps with blank lines so each block carries one idea. Keep related statements together, and put setup, the main step, and cleanup apart from each other.
+- Split a function when it mixes distinct jobs or when a reader needs the signature to recall what the body does. Prefer a few focused functions over one long one.
+
+## Comments
+
+- Write for a reader who is new to the file: someone going top to bottom should finish knowing what each part does and how the parts fit, without opening other docs.
+- Give each module a short `//!` doc stating what it owns, what it does not own, and how its main pieces fit together.
+- Write `///` doc comments for public items and private items whose behavior is not obvious from the signature. State purpose, important behavior, panics, and how the item connects to the code around it.
+- Comment inline to explain what the code cannot say on its own: reasons for non-obvious choices, invariants across functions, failure or fallback behavior, lifetime assumptions, blocking or async flow, and brief signposts above dense sections saying what the section accomplishes before the reader goes line by line.
+- Say why it exists and why not the alternative when a tradeoff was made, so the next reader does not re-litigate it.
+- Keep comments short by default: one to three lines for a doc comment, one to two inline, up to four for a module doc. Treat these as defaults, not ceilings; go longer when flow, invariants, or domain meaning genuinely need it. Stay dense: more meaning, not more words.
+- Do not parrot the code. A brief comment that orients the reader is valuable; one that repeats a line with no added information is noise. Delete it before handing off.
 
 ## Modules and crate layout
 

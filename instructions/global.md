@@ -32,6 +32,8 @@ Use without being asked:
 
 `teach`. Only when I name it. Explain technical topics from first principles, with concrete examples and engineering tradeoffs.
 
+`write-like-me`. Only when I name it. Never apply `unslop` to content generated with this skill.
+
 `html-communication`. Only when I explicitly ask to make an HTML PPT.
 
 Every other skill only when I name it. `grill-with-docs` may use subagents.
@@ -59,6 +61,7 @@ Go for backends, Rust for low-level or performance-sensitive work, TypeScript fo
 
 ## Tool use
 
+- When opening windows or pop-ups, look for an unused workspace and use it whenever possible without switching my active workspace, stealing focus, or disturbing my work; before typing, clicking, moving the cursor, or using keyboard shortcuts, verify the target window and input focus, and avoid global inputs that could affect my workspace.
 - Interactively, prefer `bat`, `rg`, `fd`, `eza`, `gh`, and `procs`. Keep them out of portable scripts and CI unless already required.
 - Scope searches and command output before running them. Limit results to relevant paths, lines, or diagnostics. If output truncates, narrow the path or query instead of raising the output limit.
 - For quiet builds, tests, and CI runs you are authorized to monitor, poll the existing process every 10 to 30 seconds. Use shorter waits when live output or interaction matters.
@@ -72,7 +75,10 @@ Go for backends, Rust for low-level or performance-sensitive work, TypeScript fo
 ## Git and pull requests
 
 - Use authenticated gh commands instead of raw anonymous curl.
-- Don't push unless I ask for a push or for work that requires one, such as opening, updating, or babysitting a PR. Don't rebase or reset unless I explicitly ask. When publishing, use a PR rather than pushing directly to the default branch. Creating or switching to a scoped branch is fine.
+- Wait for my authorization before pushing. Requests to open, update, or babysit a PR authorize the necessary pushes unless I say otherwise.
+- My GitHub username is `TheRealShek`. A repository is mine when the intended destination remote's GitHub owner matches this username, ignoring case. Reuse known remote details or inspect the local remote URL. Query GitHub only if the destination or ownership is unclear.
+- When publishing to my personal repository, push directly to its actual default branch unless I request a PR. Use a PR for someone else's repository or when direct pushes are blocked. Never bypass branch protection.
+- Creating or switching to a scoped branch is fine. Don't rebase or reset unless I explicitly ask.
 - When a review or pull request needs a base and I did not provide one, infer it. Prefer the existing PR base, then the branch upstream, then `origin/HEAD`. Ask only for stacked branches, multiple plausible bases, or when the choice would materially change the diff. Mention the inferred base in a progress update.
 - When I ask to make a pull request, open it and stop once CI starts. Do not watch, poll, or keep checking the latest status. If I asked for a draft PR, open it as a draft and stop.
 - If I tell you to "babysit the PR", see it through to the end. Monitor checks, fix any issues blocking the merge, and merge it once green if the repo is mine. Ping me only if you need a decision.

@@ -11,6 +11,7 @@ Read and apply [unslop](../unslop/SKILL.md) to all authored text, including prop
 
 ## Plan with the user
 
+- Arrange slides into a clear story flow, building on earlier concepts so each new topic follows from a question, consequence, or idea introduced before it.
 - Start with the video idea and directions. Ask about the audience, takeaway, duration, or project location only when missing information affects the plan.
 - Keep the requested technical subject and format central. Include background, comparisons, status, and roadmap material only when requested or needed to understand the topic.
 - Inspect the relevant docs and code. Ground claims about current behavior in the implementation. Separate existing behavior, plans, and your suggestions. Raise conflicts between docs and code; suggest a supported alternative when a requested topic is absent.

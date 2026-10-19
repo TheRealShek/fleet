@@ -15,7 +15,7 @@ description: Use when opening a requested pull request without a repository temp
 6. Use `code-review` against the actual base branch if the complete current diff has not already been reviewed. Reuse a review that still covers the final diff.
 7. Address valid findings and rerun relevant tests before opening the PR. If a fix is not authorized, stop and report the finding instead.
 
-Local commits follow the global `commit-work` rule. Do not push, change branches, or alter code unless the user authorized it.
+Follow `commit-work` for local commits and the global Git rules for publishing. Keep code changes within the authorized scope.
 
 ## UI screenshots
 
