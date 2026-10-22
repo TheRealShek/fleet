@@ -1,0 +1,67 @@
+[
+  {
+    "id": "explainer",
+    "file": "explainer.md",
+    "request": "Use $write-like-me to write a 180 to 240 word conversational blog passage for someone puzzled by why a disk can stay full after deleting a file. Use these supplied facts: a directory entry names a file; a running process can keep a file open through a file descriptor; unlinking the last name doesn't reclaim the file's space until the last open reference is closed; a log-writing process can therefore keep writing to an unlinked file; the application's supported log-reopen mechanism can release that old reference. No commands are requested. Explain the mechanism using a simple analogy whose limits you make clear. Do not invent personal testing or make claims about any named product."
+  },
+  {
+    "id": "first-person-rewrite",
+    "file": "first-person-rewrite.md",
+    "request": "Use $write-like-me to rewrite the following as a 100 to 140 word personal project note. Preserve the narrator and all supported observations. Original: 'I spent Saturday looking at our import job because I thought the database was slow. I timed the stages and found that parsing took 18 seconds while the database writes took 2 seconds. I stopped working on the query changes and started checking the parser. This was one run with a local test file, so I don't know if production behaves the same way. I haven't made the parser faster yet.' Keep this as my account of the work, not a recommendation to other engineers."
+  },
+  {
+    "id": "quote-and-terminology",
+    "file": "quote-and-terminology.md",
+    "request": "Use $write-like-me to write a 100 to 140 word explanation of a supplied draft correction. Keep this exact quotation unchanged, including punctuation and the word robust: \"The robust estimator remains stable—under this model.\" The supplied correction is that an estimator can be robust to one assumed kind of noise without being reliable under every model. Explain only that distinction. Do not add mathematical results or empirical evidence. Do not treat the quoted sentence as your own independently verified claim."
+  },
+  {
+    "id": "british-short-note",
+    "file": "british-short-note.md",
+    "request": "Use $write-like-me to write a 75 to 110 word personal project note in British English. Facts: I changed the app's colour theme yesterday; I wanted to organise the settings into fewer groups; I moved the colour controls together; I left the keyboard shortcuts in their existing group; I checked the preview locally; the change is not published. Keep my spelling convention and don't invent audience feedback, metrics, screenshots, or a claim that I tested anything beyond the preview."
+  },
+  {
+    "id": "literal-procedure",
+    "file": "literal-procedure.md",
+    "request": "Use $write-like-me to rewrite these supplied fictional application instructions as a clear procedure of 100 to 150 words. The app is a toy Notes application with no real service to contact. Open Settings, choose Export, select Plain text, choose a local folder, and click Save. A successful export shows the literal message Export complete and creates notes.txt in the selected folder. If Export failed appears, keep the original notes and retry after checking the folder is writable. Don't recommend deleting or replacing existing files. Don't invent UI controls or add an introductory essay."
+  },
+  {
+    "id": "research-limits",
+    "file": "research-limits.md",
+    "request": "Use $write-like-me to write a 140 to 190 word research-style passage based solely on these fictional study notes: on one 4-core laptop with 16 GiB RAM, parser A processed 100 test files in a median of 80 ms, and parser B processed them in a median of 60 ms; B reuses a buffer rather than allocating one for every file; input sizes were all under 10 KiB; the study contains no peak memory figures, larger inputs, malformed inputs, confidence intervals, or production results. Give your opinion on what is worth investigating next without inventing evidence or implying I ran this study."
+  },
+  {
+    "id": "nontechnical-post",
+    "file": "nontechnical-post.md",
+    "request": "Use $write-like-me to write a 90 to 130 word personal post, no headings. Supplied facts: I went to a second-hand bookshop on Sunday; I planned to buy one book; I spent half an hour reading the first few pages of three novels; one cover was torn; I bought that novel because its opening interested me the most; I haven't finished it; I liked having a reason for the choice beyond the cover. Keep it an ordinary observation. No life advice, invented dialogue, nostalgia, technical analogy, or promise about how good the whole novel is."
+  },
+  {
+    "id": "sparse-notes",
+    "file": "sparse-notes.md",
+    "request": "Use $write-like-me to turn the following into a personal post of about 90 words if the facts can support it. Only supplied facts: I made tea this morning; I drank it by the window. No extra events, feelings, advice, invented scenery, or repetitive recap. Do not ask me questions. If the source is insufficient for the requested length, provide the faithful draft and say briefly which constraint remains unmet."
+  },
+  {
+    "id": "explicit-format",
+    "file": "explicit-format.md",
+    "request": "Use $write-like-me to rewrite these supplied release notes in exactly three bullet points with no introductory or closing prose. Keep the scope literal: the export dialog now remembers the last local folder; the preview now uses the selected colour theme; an empty filename is rejected before export starts. The project uses British spelling. No metrics, version numbers, promises, or claims of personal testing. No explanatory questions or analogies are needed."
+  },
+  {
+    "id": "symlink-holdout",
+    "file": "symlink-holdout.md",
+    "request": "Use $write-like-me to write 150 to 210 words explaining relative symlink targets to a developer who assumes they are resolved from the terminal current directory. Supplied facts: a relative target is interpreted from the directory containing the symlink; repo/links/review -> ../skills/review therefore names repo/skills/review; changing the terminal current directory does not change that interpretation; moving the entire repo preserves the link if the internal layout stays the same; an absolute target continues to name its original absolute path. Include one clearly illustrative path example. No commands, invented tests, or further technical claims."
+  },
+  {
+    "id": "condition-variable-holdout",
+    "file": "condition-variable-holdout.md",
+    "request": "Use $write-like-me to write 140 to 190 words explaining why a condition-variable wait belongs in a loop. Supplied facts: shared state is protected by a mutex; waiting releases the mutex and blocks; returning from wait reacquires the mutex; a wakeup does not guarantee the shared predicate is true, because a wakeup can be spurious or another thread may change the state before this thread resumes; check the predicate again under the mutex before proceeding. Include clearly labelled pseudocode of at most six lines with no claims of execution."
+  },
+  {
+    "id": "team-narrator",
+    "file": "team-narrator.md",
+    "request": "Use $write-like-me to rewrite this first-person team project passage in 110 to 160 words, preserving our narrator and all measurements but removing unsupported promotional claims: 'Our revolutionary architecture unlocks seamless scalability. We increased the worker count from four to twelve. During a twenty-minute run with twelve workers, the queued job count fell from 4,800 to 900. With four workers, our separate run stayed around 2,400 queued jobs. We used the same job mix, but the tests happened on different days. Memory use rose from 2.1 GiB to 4.8 GiB. This proves our design is universally superior.' Do not imply additional testing or a causal conclusion."
+  },
+  {
+    "id": "british-literal",
+    "file": "british-literal.md",
+    "request": "Use $write-like-me to write one paragraph of 75 to 105 words in British English from these project-note facts. I renamed a settings section yesterday to make the colour controls easier to find. I moved the colour preview next to its controls. I left the color_mode configuration key unchanged because an existing integration reads it. I checked the local preview but have not published the change. The requested result is a personal project note, not advice or a tutorial. Preserve the identifier exactly; do not invent other results."
+  }
+]
