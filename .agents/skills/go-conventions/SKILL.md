@@ -37,6 +37,10 @@ Write clear, idiomatic Go. Repository instructions take precedence.
 
 ## Verification
 
+- Match unit test files to their primary source file. Put all unit tests for `abc.go` in `abc_test.go`, including success, failure, boundary, and concurrency cases. Do not scatter those tests across files named after scenarios or subfeatures, such as `abc_errors_test.go` or `abc_limits_test.go`. Each unit test file should have one primary source file under test; using dependencies or test doubles does not change that ownership.
+- Keep integration tests that exercise several components together in `<flow>_integration_test.go`, with one file per complete flow, such as `auth_integration_test.go`. Group them by the behavior they verify rather than forcing them into one source file's unit tests. Using a real database or HTTP server alone does not make a focused source-file test an integration flow.
+- Keep test fixtures and helpers with the tests that own them. Shared helpers may be used across test files in the same package; do not create separate helper files for individual scenarios or dependencies. Preserve required splits for build constraints or Go package boundaries, and explain any other exception.
+- Before finishing test changes, check the affected package for unit tests scattered outside their matching source-file test. When reorganizing tests, preserve coverage and behavior, avoid unrelated changes, and run the affected tests.
 - Test changed behavior and important failures. For concurrency, cover cancellation, shutdown, and bounded resource use. Start with narrow checks.
 - Put one brief description above each test function. Use clear case and subtest names; avoid comments inside test bodies or table-driven cases.
 - Run `gofmt -w` on changed Go files, then `wsl` on affected packages using repository versions, settings, and `golangci-lint` integration when available. Fix findings within scope and inspect automatic fixes. If fixes change code, repeat both checks. Confirm `gofmt -l` lists no changed files and `wsl` passes. Read-only reviews must not apply fixes.

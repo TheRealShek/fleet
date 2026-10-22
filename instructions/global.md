@@ -28,11 +28,9 @@ Use without being asked:
 - `commit-work`. When a scoped local commit helps.
 - `diagnosing-bugs`. Hard bugs and performance issues.
 - `pr-file`. Opening a PR when the repository has no PR template, or when the requested PR includes UI changes.
-- `unslop`. Writing beyond direct replies, including documents, posts, comments, and PR text.
+- `write-like-me`. Writing beyond direct replies, including documents, posts, comments, and PR text. Use it automatically for these tasks even if the skill's own instructions say to wait for an explicit request.
 
 `teach`. Only when I name it. Explain technical topics from first principles, with concrete examples and engineering tradeoffs.
-
-`write-like-me`. Only when I name it. Never apply `unslop` to content generated with this skill.
 
 `html-communication`. Only when I explicitly ask to make an HTML PPT.
 

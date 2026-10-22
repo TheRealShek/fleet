@@ -1,0 +1,6 @@
+interface:
+  display_name: "Video script"
+  short_description: "Plan technical videos with speaking and screen cues"
+  default_prompt: "Use $video-script to plan my technical teaching video, with speaking cues, diagram instructions, and code-demo steps."
+policy:
+  allow_implicit_invocation: false
