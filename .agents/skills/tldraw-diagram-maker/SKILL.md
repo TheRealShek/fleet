@@ -19,7 +19,7 @@ Stop when the requested outcome is explained. Don't turn the sequence into an ex
 
 For an intervention during ongoing work, establish the starting state and associations needed to explain why it affects that work. Preserve those links when compressing setup.
 
-Before detailed drawing, briefly propose the question, main participants or groups, and reading direction. Follow the task's confirmation requirements. Reuse an already approved plan for small revisions.
+Before detailed drawing, briefly propose the question, main participants or groups, and reading direction. Wait for the user's brief confirmation before building it out. Reuse an already approved plan for small revisions.
 
 ## Make the flow understandable
 
@@ -51,9 +51,11 @@ Use at most two line styles and no legend. If the reader needs a legend, simplif
 
 ## Follow the visual brief
 
-Use the style, references, and output location supplied for this task. Without a visual brief, use a simple, consistent style with readable text, connectors, and arrowheads at normal viewing size.
+Use the style, references, and output location supplied for this task. By default, save diagrams in the user's Documents folder. Use black and white with one light grey, or a small muted palette for meaningful groups. Keep connectors thick and arrowheads readable at normal viewing size. Size `l` with triangular heads works well in the offline app.
 
-When using colour, use a small muted palette consistently for meaningful groups. Keep text dark on light fills. Colour should reinforce labelled structure without requiring a colour key.
+Use colour consistently, with dark text on light fills and a white background. Colour should reinforce labelled structure without requiring a colour key.
+
+Always export diagram images in light mode with a white background, regardless of the editor theme. Inspect the exported image to verify this.
 
 Use editable shapes with bound connectors and save in the native format. Preserve the parts the user wants to keep. Improving one page doesn't mean redrawing another.
 
@@ -61,7 +63,9 @@ When given a reference, learn from its reading order, grouping, and relationship
 
 ## Use the available tools
 
-Use the TLDraw environment available for the task and read its tool or API instructions. Discover supported operations instead of assuming a particular app version, endpoint, or save method. Identify the intended document and inspect the canvas before editing.
+Use the offline TLDraw app unless the user explicitly requests the online version. Discover its local API from `$XDG_CONFIG_HOME/tldraw/server.json`, or `~/.config/tldraw/server.json` when unset. Read the loopback server's `/readme` for current operations. Use its token as a Bearer credential where required. Never print it.
+
+Read the selected environment's tool or API instructions instead of assuming supported operations. Select the document by its exact path and inspect the canvas before editing. For a locally owned document with a destination in Documents, use `helpers.saveDoc()` as supported by the app's instructions. Refresh affected exports after saving.
 
 This skill needs no companion skill, downloaded library, or mandatory web research. Use existing tools before adding dependencies. If TLDraw access is missing, explain the missing capability. Don't silently substitute another drawing tool.
 

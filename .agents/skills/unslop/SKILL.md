@@ -1,6 +1,6 @@
 ---
 name: unslop
-description: Use when writing or editing documents, posts, comments, and other text beyond direct replies.
+description: Use when writing or editing text beyond direct replies.
 ---
 
 # Unslop

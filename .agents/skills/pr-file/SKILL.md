@@ -1,6 +1,6 @@
 ---
 name: pr-file
-description: Use when opening a requested pull request without a repository template, or when the requested pull request includes UI changes.
+description: Use for requested pull requests lacking templates or including UI changes.
 ---
 
 # PR Filing

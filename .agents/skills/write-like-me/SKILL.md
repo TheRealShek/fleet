@@ -1,11 +1,11 @@
 ---
 name: write-like-me
-description: Use only when the user explicitly asks to use the write-like-me skill.
+description: Use for writing beyond direct replies, or when explicitly requested.
 ---
 
 # Write like me
 
-Use only when explicitly requested by name. Never apply `unslop` to content generated with this skill.
+Apply automatically to writing beyond direct replies, or when explicitly requested. Never apply `unslop` to content generated with this skill.
 
 Draft or rewrite journal entries, posts, and explanations using the user's facts and preferred voice. Use the reusable writing patterns in this skill as defaults, then follow the user's own notes, examples, and explicit preferences.
 

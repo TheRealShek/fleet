@@ -1,6 +1,6 @@
 ---
 name: grill-with-docs
-description: Use only when explicitly invoked to challenge an idea while maintaining its domain documentation.
+description: Use when explicitly invoking grill-with-docs for design questioning and domain documentation.
 ---
 
 # Grill with Docs

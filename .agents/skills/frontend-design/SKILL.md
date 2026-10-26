@@ -1,6 +1,6 @@
 ---
 name: frontend-design
-description: Use only with the user's explicit permission for distinctive, intentional visual design when building new UI or reshaping an existing one.
+description: Use with explicit permission when creating or reshaping frontend visual design.
 license: Complete terms in LICENSE.txt
 ---
 

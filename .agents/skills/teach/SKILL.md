@@ -1,6 +1,6 @@
 ---
 name: teach
-description: Use only when explicitly asked to use teach to explain a technical topic.
+description: Use when explicitly invoking teach to explain technical topics.
 disable-model-invocation: true
 ---
 

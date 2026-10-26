@@ -28,8 +28,9 @@ This repository is my source of truth for reusable AI-agent configuration. I use
 ## How to write skills
 
 - Make every shared skill work with Claude, Codex, and Antigravity.
-- Keep each skill description to one line that only says when to use the skill. The description is always sent to the model, so do not explain the skill there.
+- Skill descriptions say only when to use the skill. Keep them to one line, ideally under 10 words and never over 12. Put explanations and workflow details in the skill body.
 - Write skill instructions in simple language.
+- Keep `.agents/skills/list-skills/SKILL.md` current when adding, renaming, removing, or changing a skill's purpose or invocation rules. List briefs and canonical paths, not copies of skill instructions.
 
 ## What to change
 

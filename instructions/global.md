@@ -18,23 +18,20 @@ Address me as "Sir".
 
 ## Skills
 
-Use a skill only when the rules below allow it. Read its `SKILL.md` before using it. If it isn't available, read `/Drive2/Coding_Skills/Personal/fleet/.agents/skills/<skill-name>/SKILL.md` directly.
+### Discovery
 
-Use without being asked:
+- Read the selected skill's `SKILL.md` before use.
+- Fleet skills live at `/Drive2/Coding_Skills/Personal/fleet/.agents/skills/`.
+- If discovery is missing or incomplete, read `list-skills/SKILL.md` under that root. If the needed skill is known, read `<skill-name>/SKILL.md` directly instead.
 
-- `rust-conventions`. Writing or changing Rust code, not merely reading it.
-- `go-conventions`. Writing or changing Where is the rule in-Go code, not merely reading it.
-- `code-review`. Medium or high complexity changes, and before a PR if not already reviewed. Skip small changes and redundant reviews. Review once, fix valid findings, recheck affected code. Reuse a review that still covers the final diff. May use subagents.
-- `commit-work`. When a scoped local commit helps.
-- `diagnosing-bugs`. Hard bugs and performance issues.
-- `pr-file`. Opening a PR when the repository has no PR template, or when the requested PR includes UI changes.
-- `write-like-me`. Writing beyond direct replies, including documents, posts, comments, and PR text. Use it automatically for these tasks even if the skill's own instructions say to wait for an explicit request.
+### Invocation
 
-`teach`. Only when I name it. Explain technical topics from first principles, with concrete examples and engineering tradeoffs.
-
-`html-communication`. Only when I explicitly ask to make an HTML PPT.
-
-Every other skill only when I name it. `grill-with-docs` may use subagents.
+- Automatic when applicable: `rust-conventions`, `go-conventions`, `code-review`, `commit-work`, `diagnosing-bugs`, `pr-file`, `write-like-me`, `tldraw-diagram-maker`.
+- Use `list-skills` for missing discovery or when requested.
+- Every other skill requires me to name it. Exception: `html-communication` requires an explicit HTML PPT request.
+- Apply Rust and Go conventions only when writing or changing code.
+- Skip small or redundant reviews. Review once, fix valid findings, recheck affected code, and reuse reviews covering the final diff.
+- Only `code-review` and `grill-with-docs` may use subagents without a separate request.
 
 ## Authority and scope
 
@@ -46,12 +43,10 @@ Every other skill only when I name it. `grill-with-docs` may use subagents.
 
 ## Engineering
 
-- Find the root cause before fixing. For bugs, check every caller of the changed function.
-- Search for an existing helper before writing a new one.
-- Follow repo patterns and the language's own idioms. Don't import patterns from other languages.
-- When writing code, avoid claustrophobic code: leave breathing room between logical steps and split dense expressions so the structure is easy to scan.
-- Write code for the next person reading it. Use blank lines to separate logical steps, keep related statements together, and split dense expressions when it helps readability. Follow the repository's formatting conventions and the language's idioms.
-- Prefer the standard library. Add a dependency only when its value justifies the cost.
+- Find the root cause before fixing bugs; check every caller of changed functions.
+- Look for existing helpers before adding new ones. Prefer the standard library; justify new dependencies.
+- Follow repository patterns, formatting, and native language idioms. Do not import patterns from other languages.
+- Separate logical steps with blank lines, group related statements, and split dense expressions for readability.
 - No unrelated refactors, cleanup, upgrades, or formatting.
 
 ## Defaults for new projects
@@ -60,21 +55,11 @@ Go for backends, Rust for low-level or performance-sensitive work, TypeScript fo
 
 ## Tool use
 
-- When I ask for a TLDraw change, check the offline TLDraw app first. Assume I mean the offline app unless I explicitly ask for the online version.
 - Save all diagrams in the Documents folder in my System.
-- Before an action that could affect my desktop, check what else it could change: cursor position, focus, workspaces, or another window. Choose the least disruptive method and prefer actions confined to the target window. A hidden workspace or no-focus option is not proof that an action won't disturb me. If the effects are uncertain, defer that interaction and continue independent work.
-- When opening windows or pop-ups, look for an unused workspace and use it whenever possible without switching my active workspace, stealing focus, or disturbing my work; before typing, clicking, moving the cursor, or using keyboard shortcuts, verify the target window and input focus, and avoid global inputs that could affect my workspace.
+- Before desktop actions, check effects on the cursor, focus, workspaces, and other windows. Use the least disruptive method, confined to the target when possible. Verify target and focus before input; avoid disruptive global inputs. Open windows and pop-ups on unused workspaces when possible, without switching mine or stealing focus. Hidden workspaces and no-focus options do not guarantee safety. If effects are uncertain, defer interaction and continue independent work.
 - Interactively, prefer `bat`, `rg`, `fd`, `eza`, `gh`, and `procs`. Keep them out of portable scripts and CI unless already required.
 - Scope searches and command output before running them. Limit results to relevant paths, lines, or diagnostics. If output truncates, narrow the path or query instead of raising the output limit.
 - For quiet builds, tests, and CI runs you are authorized to monitor, poll the existing process every 10 to 30 seconds. Use shorter waits when live output or interaction matters.
-
-## Tldraw Diagram preferences and local setup
-
-- Use black and white with one light grey, or a small muted colour palette when it helps distinguish meaningful groups. Use colour consistently, with dark text on light fills and a white background. Keep connectors thick and arrowheads large enough to read at normal viewing size. Size `l` with triangular heads worked well in my offline TLDraw app.
-- Before detailed drawing, give me a brief proposal of the question, major participants or groups, and flow direction. Wait for my brief confirmation before building it out. Reuse an approved plan for small revisions.
-- Always export diagram images in light mode with a white background, regardless of the editor theme. Inspect the exported image to check this.
-- For my offline TLDraw app, discover the local API from `$XDG_CONFIG_HOME/tldraw/server.json`, or `~/.config/tldraw/server.json` when unset. Read the loopback server's `/readme` for current operations. Use its token as a Bearer credential where required. Never print it.
-- Select the document by its exact path. For a locally owned document with a destination in Documents, use `helpers.saveDoc()` as supported by the app's instructions. Refresh affected exports after saving.
 
 ## Verification
 
@@ -84,14 +69,14 @@ Go for backends, Rust for low-level or performance-sensitive work, TypeScript fo
 
 ## Git and pull requests
 
-- Use authenticated gh commands instead of raw anonymous curl.
-- Wait for my authorization before pushing. Requests to open, update, or babysit a PR authorize the necessary pushes unless I say otherwise.
-- My GitHub username is `TheRealShek`. A repository is mine when the intended destination remote's GitHub owner matches this username, ignoring case. Reuse known remote details or inspect the local remote URL. Query GitHub only if the destination or ownership is unclear.
-- When publishing to my personal repository, push directly to its actual default branch unless I request a PR. Use a PR for someone else's repository or when direct pushes are blocked. Never bypass branch protection.
-- Creating or switching to a scoped branch is fine. Don't rebase or reset unless I explicitly ask.
-- When a review or pull request needs a base and I did not provide one, infer it. Prefer the existing PR base, then the branch upstream, then `origin/HEAD`. Ask only for stacked branches, multiple plausible bases, or when the choice would materially change the diff. Mention the inferred base in a progress update.
-- When I ask to make a pull request, open it and stop once CI starts. Do not watch, poll, or keep checking the latest status. If I asked for a draft PR, open it as a draft and stop.
-- If I tell you to "babysit the PR", see it through to the end. Monitor checks, fix any issues blocking the merge, and merge it once green if the repo is mine. Ping me only if you need a decision.
+- Use authenticated `gh`, not anonymous `curl`.
+- Push only with authorization. Requests to open, update, or babysit a PR authorize necessary pushes unless I say otherwise.
+- A repo is mine when its destination GitHub owner is `TheRealShek`, ignoring case. Use known or local remote details; query GitHub only if unclear.
+- When authorized to publish, use my repo's actual default branch unless I request a PR. Use PRs for others' repos or blocked direct pushes. Never bypass branch protection.
+- Scoped branches are allowed. Rebase or reset only when explicitly requested.
+- Infer an unspecified review or PR base from the existing PR, then branch upstream, then `origin/HEAD`. Ask only for stacked branches, multiple plausible bases, or materially different diffs. State the inferred base in a progress update.
+- For a PR request, open it and stop once CI starts; do not monitor afterward. For a requested draft, open it as a draft and stop.
+- For “babysit the PR,” monitor checks, fix merge blockers, and merge when green if the repo is mine. Ask only when a decision is needed.
 
 ## Communication
 

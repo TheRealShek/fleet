@@ -1,6 +1,6 @@
 ---
 name: video-script
-description: Use when explicitly asked to use video-script to plan a technical teaching video or write its speaking cues.
+description: Use when explicitly invoking video-script to plan technical videos or speaking cues.
 disable-model-invocation: true
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: code-review
-description: Review medium or high complexity code changes, and changes before a pull request if they have not already been reviewed.
+description: Use for unreviewed medium/complex changes or unreviewed changes before pull requests.
 ---
 
 Two-axis review of all changes since a fixed point the user supplies, including working-tree changes:
@@ -78,6 +78,12 @@ If the spec is missing, skip the Spec sub-agent and note this in the final repor
 Present the two reports under `## Standards` and `## Spec` headings, verbatim or lightly cleaned. Do **not** merge or rerank findings. The two axes are deliberately separate (see _Why two axes_).
 
 End with a one-line summary: total findings per axis, and the worst issue _within each axis_ (if any). Don't pick a single winner across axes. That's the reranking the separation exists to prevent.
+
+### 6. Recheck and stop
+
+When fixes are authorized, address substantive findings and recheck the affected behavior and relevant tests. Reuse the rest of the review; do not restart a broad review after every fix. Broaden the recheck only when a fix affects other paths or new evidence reveals a substantive problem.
+
+Stop when substantive findings are resolved and affected checks pass. Report remaining minor concerns without pursuing cleanup or speculative improvements unless the user requests them. Do not dismiss explicit requirements, security risks, data loss, or correctness failures as nitpicks. A review-only request does not authorize fixes.
 
 ## Why two axes
 

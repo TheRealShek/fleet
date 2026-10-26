@@ -1,0 +1,6 @@
+interface:
+  display_name: "List skills"
+  short_description: "Find Fleet skills when discovery is missing"
+  default_prompt: "Use $list-skills to list Fleet skills and explain when each applies."
+policy:
+  allow_implicit_invocation: true

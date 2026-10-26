@@ -3,4 +3,4 @@ interface:
   short_description: "Draft journals and posts in your preferred voice"
   default_prompt: "Use $write-like-me to draft or rewrite this in my preferred voice while preserving my facts and intent."
 policy:
-  allow_implicit_invocation: false
+  allow_implicit_invocation: true
