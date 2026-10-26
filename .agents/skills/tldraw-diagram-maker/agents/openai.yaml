@@ -1,0 +1,4 @@
+interface:
+  display_name: "TL draw diagram maker"
+  short_description: "Draw diagrams that explain the system clearly"
+  default_prompt: "Use $tldraw-diagram-maker to make the requested diagram with a clear scope and flow."

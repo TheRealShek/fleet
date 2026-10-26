@@ -49,6 +49,7 @@ Every other skill only when I name it. `grill-with-docs` may use subagents.
 - Find the root cause before fixing. For bugs, check every caller of the changed function.
 - Search for an existing helper before writing a new one.
 - Follow repo patterns and the language's own idioms. Don't import patterns from other languages.
+- When writing code, avoid claustrophobic code: leave breathing room between logical steps and split dense expressions so the structure is easy to scan.
 - Write code for the next person reading it. Use blank lines to separate logical steps, keep related statements together, and split dense expressions when it helps readability. Follow the repository's formatting conventions and the language's idioms.
 - Prefer the standard library. Add a dependency only when its value justifies the cost.
 - No unrelated refactors, cleanup, upgrades, or formatting.
@@ -59,10 +60,21 @@ Go for backends, Rust for low-level or performance-sensitive work, TypeScript fo
 
 ## Tool use
 
+- When I ask for a TLDraw change, check the offline TLDraw app first. Assume I mean the offline app unless I explicitly ask for the online version.
+- Save all diagrams in the Documents folder in my System.
+- Before an action that could affect my desktop, check what else it could change: cursor position, focus, workspaces, or another window. Choose the least disruptive method and prefer actions confined to the target window. A hidden workspace or no-focus option is not proof that an action won't disturb me. If the effects are uncertain, defer that interaction and continue independent work.
 - When opening windows or pop-ups, look for an unused workspace and use it whenever possible without switching my active workspace, stealing focus, or disturbing my work; before typing, clicking, moving the cursor, or using keyboard shortcuts, verify the target window and input focus, and avoid global inputs that could affect my workspace.
 - Interactively, prefer `bat`, `rg`, `fd`, `eza`, `gh`, and `procs`. Keep them out of portable scripts and CI unless already required.
 - Scope searches and command output before running them. Limit results to relevant paths, lines, or diagnostics. If output truncates, narrow the path or query instead of raising the output limit.
 - For quiet builds, tests, and CI runs you are authorized to monitor, poll the existing process every 10 to 30 seconds. Use shorter waits when live output or interaction matters.
+
+## Tldraw Diagram preferences and local setup
+
+- Use black and white with one light grey, or a small muted colour palette when it helps distinguish meaningful groups. Use colour consistently, with dark text on light fills and a white background. Keep connectors thick and arrowheads large enough to read at normal viewing size. Size `l` with triangular heads worked well in my offline TLDraw app.
+- Before detailed drawing, give me a brief proposal of the question, major participants or groups, and flow direction. Wait for my brief confirmation before building it out. Reuse an approved plan for small revisions.
+- Always export diagram images in light mode with a white background, regardless of the editor theme. Inspect the exported image to check this.
+- For my offline TLDraw app, discover the local API from `$XDG_CONFIG_HOME/tldraw/server.json`, or `~/.config/tldraw/server.json` when unset. Read the loopback server's `/readme` for current operations. Use its token as a Bearer credential where required. Never print it.
+- Select the document by its exact path. For a locally owned document with a destination in Documents, use `helpers.saveDoc()` as supported by the app's instructions. Refresh affected exports after saving.
 
 ## Verification
 
